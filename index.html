@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materials & Structures! - Grade 1 Science</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Fredoka:wght@400;600;700&family=Chewy&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --orange: #FF9F1C;
+            --yellow: #FFD93D;
+            --brown: #8B4513;
+            --tan: #D2B48C;
+            --green: #6BCF7F;
+            --blue: #4D96FF;
+            --purple: #9D4EDD;
+            --pink: #FF6B9D;
+            --red: #EF476F;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background: linear-gradient(135deg, #FFF8DC 0%, #FFE4B5 50%, #FFDAB9 100%);
+            color: #2D3748; overflow-x: hidden;
+        }
+        .bg-shapes {
+            position: fixed; width: 100%; height: 100%; overflow: hidden; z-index: -1;
+        }
+        .shape {
+            position: absolute; border-radius: 50%; opacity: 0.2;
+            animation: float 20s infinite ease-in-out;
+        }
+        .shape:nth-child(1) { width: 100px; height: 100px; background: var(--orange); top: 10%; left: 10%; }
+        .shape:nth-child(2) { width: 150px; height: 150px; background: var(--brown); top: 50%; left: 70%; animation-delay: 5s; }
+        .shape:nth-child(3) { width: 80px; height: 80px; background: var(--yellow); top: 70%; left: 20%; animation-delay: 10s; }
+        .shape:nth-child(4) { width: 120px; height: 120px; background: var(--tan); top: 30%; left: 80%; animation-delay: 15s; }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(30px, -30px) rotate(90deg); }
+            50% { transform: translate(0, -60px) rotate(180deg); }
+            75% { transform: translate(-30px, -30px) rotate(270deg); }
+        }
+        header {
+            background: linear-gradient(135deg, var(--orange) 0%, var(--brown) 50%, var(--tan) 100%);
+            padding: 3rem 2rem; text-align: center; position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2); overflow: hidden;
+        }
+        header::before {
+            content: '🏗️'; position: absolute; font-size: 10rem; opacity: 0.15;
+            top: -20px; left: 5%; animation: build 3s infinite;
+        }
+        header::after {
+            content: '🧱'; position: absolute; font-size: 10rem; opacity: 0.15;
+            top: -20px; right: 5%; animation: stack 4s infinite;
+        }
+        @keyframes build {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        @keyframes stack {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        h1 {
+            font-family: 'Bubblegum Sans', cursive; font-size: 4.5rem; color: white;
+            text-shadow: 4px 4px 0 var(--brown), 8px 8px 0 var(--orange), 12px 12px 30px rgba(0,0,0,0.3);
+            margin-bottom: 1rem;
+        }
+        .subtitle {
+            font-family: 'Chewy', cursive; font-size: 2.2rem; color: white;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+        }
+        nav {
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
+            padding: 1.5rem; box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            position: sticky; top: 0; z-index: 100; border-bottom: 5px solid var(--orange);
+        }
+        nav.hidden { display: none; }
+        .nav-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem; max-width: 1600px; margin: 0 auto;
+        }
+        .nav-btn {
+            background: linear-gradient(135deg, var(--orange), var(--yellow));
+            color: white; border: none; padding: 1.2rem 0.8rem; border-radius: 20px;
+            font-family: 'Fredoka', sans-serif; font-size: 0.8rem; font-weight: 700;
+            cursor: pointer; transition: all 0.3s; box-shadow: 0 6px 0 rgba(0,0,0,0.2);
+            text-transform: uppercase;
+        }
+        .nav-btn:hover { transform: translateY(-5px) scale(1.05); }
+        .nav-btn.active {
+            background: linear-gradient(135deg, var(--pink), var(--purple));
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .back-button {
+            display: none; position: fixed; top: 20px; left: 20px; z-index: 101;
+            background: linear-gradient(135deg, var(--orange), var(--yellow));
+            color: white; border: none; padding: 1rem 2rem; border-radius: 15px;
+            font-family: 'Fredoka', sans-serif; font-size: 1.2rem; font-weight: 700;
+            cursor: pointer; box-shadow: 0 8px 20px rgba(255, 159, 28, 0.4);
+            transition: all 0.3s;
+        }
+        .back-button.show { display: block; animation: slideInLeft 0.5s; }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .bottom-back-button { display: none; margin: 3rem auto; }
+        .bottom-back-button.show { display: block; }
+        .container { max-width: 1200px; margin: 2rem auto; padding: 0 2rem; }
+        .page { display: none; animation: fadeInUp 0.6s; }
+        .page.active { display: block; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .card {
+            background: white; border-radius: 30px; padding: 3rem; margin-bottom: 2rem;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15); border: 6px solid;
+        }
+        .card h2 {
+            font-family: 'Bubblegum Sans', cursive; font-size: 3rem; margin-bottom: 1.5rem;
+            color: var(--orange); text-shadow: 3px 3px 0 var(--yellow);
+        }
+        .card h3 {
+            font-family: 'Chewy', cursive; font-size: 2.2rem; margin: 2rem 0 1.5rem;
+            color: var(--purple);
+        }
+        .card p, .card li {
+            font-size: 1.4rem; line-height: 1.9; margin-bottom: 1rem; font-weight: 500;
+        }
+        .card ul { margin-left: 2rem; }
+        
+        /* Click-to-read audio styles */
+        .clickable-audio {
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s;
+            padding: 0.5rem;
+            border-radius: 10px;
+        }
+        .clickable-audio:hover {
+            background: rgba(255, 159, 28, 0.2);
+            transform: translateX(5px);
+        }
+        .clickable-audio::before {
+            content: '🔊';
+            position: absolute;
+            left: -30px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 1.2rem;
+        }
+        .clickable-audio:hover::before {
+            opacity: 0.6;
+        }
+        .clickable-audio.speaking {
+            background: rgba(255, 211, 61, 0.4);
+            animation: pulse-speak 1s infinite;
+        }
+        .clickable-audio.speaking::before {
+            content: '🔊';
+            opacity: 1;
+            animation: bounce-speaker 0.5s infinite;
+        }
+        @keyframes pulse-speak {
+            0%, 100% { background: rgba(255, 211, 61, 0.3); }
+            50% { background: rgba(255, 211, 61, 0.5); }
+        }
+        @keyframes bounce-speaker {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        .example-card.clickable-audio::before {
+            left: 10px;
+            top: 10px;
+        }
+        
+        .audio-controls {
+            text-align: center; margin: 2rem 0; padding: 1.5rem;
+            background: rgba(157, 78, 221, 0.1); border-radius: 15px;
+            border: 3px solid var(--purple);
+        }
+        .example-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem; margin: 2rem 0;
+        }
+        .example-card {
+            background: white; border-radius: 20px; padding: 2rem; text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15); border: 5px solid;
+            transition: all 0.4s; cursor: pointer;
+        }
+        .example-card:hover { transform: translateY(-15px) rotate(-5deg); }
+        .icon {
+            font-size: 5rem; margin-bottom: 1rem; display: block;
+            animation: bounce-icon 2s ease-in-out infinite;
+        }
+        @keyframes bounce-icon {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        .example-card h4 { font-family: 'Chewy', cursive; font-size: 1.6rem; margin-bottom: 0.8rem; }
+        .example-card p { font-size: 1.1rem; }
+        .activity-box {
+            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+            border-radius: 25px; padding: 3rem; margin: 2rem 0;
+            border: 6px solid var(--yellow); box-shadow: 0 10px 30px rgba(255,211,61,0.3);
+        }
+        .activity-box h3 {
+            color: #D97706; font-size: 2.5rem; margin-bottom: 1.5rem;
+        }
+        .quiz-box {
+            background: linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%);
+            border-radius: 25px; padding: 3rem; margin: 2rem 0;
+            border: 6px solid var(--blue);
+        }
+        .quiz-box h3 {
+            color: #1E40AF; font-size: 2.5rem; margin-bottom: 1.5rem;
+        }
+        .question {
+            background: white; border-radius: 20px; padding: 2rem; margin: 1.5rem 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1); border-left: 8px solid var(--orange);
+        }
+        .question h4 { font-size: 1.4rem; margin-bottom: 1.5rem; font-weight: 700; }
+        .options { display: flex; flex-direction: column; gap: 1rem; }
+        .option {
+            background: #F3F4F6; padding: 1.5rem; border-radius: 15px; cursor: pointer;
+            transition: all 0.3s; border: 4px solid transparent; font-size: 1.2rem; font-weight: 600;
+        }
+        .option:hover {
+            background: #E5E7EB; transform: translateX(10px);
+            border-color: var(--orange);
+        }
+        .option.selected {
+            border-color: var(--orange); background: #FFF8DC;
+        }
+        .option.correct {
+            border-color: var(--green); background: #D1FAE5; animation: correctBounce 0.6s;
+        }
+        .option.incorrect {
+            border-color: var(--red); background: #FEE2E2; animation: shake 0.6s;
+        }
+        @keyframes correctBounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+        .feedback {
+            margin-top: 1.5rem; padding: 2rem; border-radius: 15px; font-weight: 700;
+            display: none; font-size: 1.3rem;
+        }
+        .feedback.show { display: block; animation: popIn 0.5s; }
+        @keyframes popIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .feedback.correct {
+            background: #D1FAE5; color: #065F46; border: 4px solid var(--green);
+        }
+        .feedback.incorrect {
+            background: #FEE2E2; color: #991B1B; border: 4px solid var(--red);
+        }
+        .score-display {
+            background: white; padding: 3rem; border-radius: 20px; text-align: center;
+            font-size: 2rem; font-weight: 800; margin-top: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2); border: 5px solid var(--orange);
+        }
+        .btn {
+            background: linear-gradient(135deg, var(--orange), var(--yellow));
+            color: white; border: none; padding: 1.5rem 3rem; border-radius: 20px;
+            font-family: 'Fredoka', sans-serif; font-size: 1.3rem; font-weight: 700;
+            cursor: pointer; transition: all 0.3s; box-shadow: 0 8px 0 rgba(0,0,0,0.2);
+            text-transform: uppercase;
+        }
+        .btn:hover { transform: translateY(-6px); }
+        .btn-check { background: linear-gradient(135deg, var(--orange), var(--yellow)); }
+        .btn-reset { background: linear-gradient(135deg, var(--brown), var(--tan)); }
+        .btn-audio { background: linear-gradient(135deg, var(--purple), var(--pink)); }
+        .button-group { display: flex; gap: 1.5rem; flex-wrap: wrap; margin: 2rem 0; }
+        .drag-item {
+            background: white; padding: 1.5rem; border-radius: 15px; cursor: move;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15); border: 4px solid var(--orange);
+            font-size: 1.2rem; text-align: center; font-weight: 700;
+            transition: all 0.3s; margin: 0.8rem; display: inline-block;
+        }
+        .drag-item:hover { transform: rotate(-5deg) scale(1.05); }
+        .drop-zone {
+            background: rgba(255, 159, 28, 0.1); border: 5px dashed var(--orange);
+            border-radius: 20px; padding: 2.5rem; min-height: 180px; margin: 1.5rem 0;
+            display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;
+            justify-content: center; transition: all 0.3s;
+        }
+        .drop-zone.drag-over {
+            background: rgba(255, 159, 28, 0.3);
+            border-color: var(--pink);
+        }
+        input[type="text"] {
+            border: 3px solid var(--orange); padding: 0.8rem; font-size: 1.2rem;
+            border-radius: 10px; font-family: 'Fredoka', sans-serif; font-weight: 700;
+            transition: all 0.3s;
+        }
+        input[type="text"]:focus {
+            outline: none; border-color: var(--pink);
+            box-shadow: 0 0 10px rgba(255, 107, 157, 0.3);
+        }
+        .home-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem; margin: 3rem 0;
+        }
+        .topic-card {
+            background: white; border-radius: 25px; padding: 2.5rem; text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2); cursor: pointer;
+            transition: all 0.4s; border: 6px solid;
+        }
+        .topic-card:hover {
+            transform: translateY(-20px) scale(1.05);
+        }
+        .topic-card .icon { font-size: 5rem; margin-bottom: 1rem; }
+        .topic-card h3 { margin: 1rem 0; font-size: 1.4rem; }
+        .topic-card p { font-size: 1.1rem; }
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .nav-grid { grid-template-columns: 1fr; }
+            .card { padding: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <header>
+        <h1>🏗️ Materials & Structures! 🧱</h1>
+        <p class="subtitle">Discover What Things Are Made Of!</p>
+    </header>
+
+    <nav>
+        <div class="nav-grid">
+            <button class="nav-btn active" onclick="showPage('home', event)">🏠 Home</button>
+            <button class="nav-btn" onclick="showPage('d11', event)">D1.1 - Waste</button>
+            <button class="nav-btn" onclick="showPage('d12', event)">D1.2 - Lifecycle</button>
+            <button class="nav-btn" onclick="showPage('d21', event)">D2.1 - Materials</button>
+            <button class="nav-btn" onclick="showPage('d22', event)">D2.2 - Structures</button>
+            <button class="nav-btn" onclick="showPage('d23', event)">D2.3 - Used</button>
+            <button class="nav-btn" onclick="showPage('d24', event)">D2.4 - Senses</button>
+            <button class="nav-btn" onclick="showPage('d25', event)">D2.5 - Purposes</button>
+            <button class="nav-btn" onclick="showPage('d26', event)">D2.6 - Properties</button>
+            <button class="nav-btn" onclick="showPage('d27', event)">D2.7 - Fasteners</button>
+            <button class="nav-btn" onclick="showPage('d28', event)">D2.8 - Nature</button>
+        </div>
+    </nav>
+
+    <button class="back-button" id="backButton" onclick="showPage('home', event)">
+        ← Back to Home
+    </button>
+
+    <div class="container">
+        <div id="home" class="page active">
+            <div class="card" style="border-color: var(--orange);">
+                <h2>Welcome, Young Builders! 🎉</h2>
+                <p>Get ready to explore <strong>MATERIALS and STRUCTURES</strong>! You'll learn what things are made of and how they work!</p>
+                <p>Click on any topic below to start your adventure! 🏗️</p>
+            </div>
+
+            <div class="home-grid">
+                <div class="topic-card" style="border-color: var(--orange);" onclick="showPage('d11', event)">
+                    <div class="icon">♻️</div>
+                    <h3>Minimizing Waste</h3>
+                    <p>Reduce, Reuse, Recycle!</p>
+                </div>
+                <div class="topic-card" style="border-color: var(--yellow);" onclick="showPage('d12', event)">
+                    <div class="icon">🔄</div>
+                    <h3>Object Lifecycle</h3>
+                    <p>What happens to things!</p>
+                </div>
+                <div class="topic-card" style="border-color: var(--brown);" onclick="showPage('d21', event)">
+                    <div class="icon">🧱</div>
+                    <h3>Materials in Objects</h3>
+                    <p>What things are made of!</p>
+                </div>
+                <div class="topic-card" style="border-color: var(--tan);" onclick="showPage('d22', event)">
+                    <div class="icon">🏗️</div>
+                    <h3>Structures Support</h3>
+                    <p>How things hold up!</p>
+                </div>
+                <div class="topic-card" style="border-color: var(--green);" onclick="showPage('d23', event)">
+                    <div class="icon">🪵</div>
+                    <h3>Materials Used</h3>
+                    <p>Wood, metal, plastic!</p>
+                </div>
+                <div class="topic-card" style="border-color: var(--blue);" onclick="showPage('d24', event)">
+                    <div class="icon">👀</div>
+                    <h3>Using Our Senses</h3>
+                    <p>Touch, see, hear!</p>
+                </div>
+                <div class="topic-card" style="border-color: var(--purple);" onclick="showPage('d25', event)">
+                    <div class="icon">🎯</div>
+                    <h3>Purposes</h3>
+                    <p>Why we use things!</p>
+                </div>
+                <div class="topic-card" style="border-color: var(--pink);" onclick="showPage('d26', event)">
+                    <div class="icon">💪</div>
+                    <h3>Properties</h3>
+                    <p>Strong, soft, hard!</p>
+                </div>
+                <div class="topic-card" style="border-color: var(--red);" onclick="showPage('d27', event)">
+                    <div class="icon">📎</div>
+                    <h3>Fasteners</h3>
+                    <p>Hold things together!</p>
+                </div>
+                <div class="topic-card" style="border-color: var(--orange);" onclick="showPage('d28', event)">
+                    <div class="icon">🌳</div>
+                    <h3>From Nature</h3>
+                    <p>Natural materials!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- D1.1 PAGE -->
+        <div id="d11" class="page">
+            <div class="card" style="border-color: var(--orange);">
+                <h2>D1.1 - Minimizing Waste ♻️</h2>
+                <p>We can make <strong>less garbage</strong>! Let's learn to reduce, reuse, and recycle!</p>
+                
+                <div class="audio-controls">
+                    <button class="btn btn-audio" onclick="readPageAloud()" id="readBtn-d11">🔊 Read This Page Aloud</button>
+                    <button class="btn btn-reset" onclick="stopReading()" id="stopBtn-d11" style="display: none;">⏸️ Stop Reading</button>
+                    <p style="margin-top: 1rem; font-size: 1.2rem; color: var(--purple); font-weight: 600;">💡 Click on any text or card to hear it read aloud!</p>
+                </div>
+
+                <h3>The Three Rs 🌟</h3>
+                <div class="example-grid">
+                    <div class="example-card" style="border-color: var(--green);">
+                        <div class="icon">🔴</div>
+                        <h4>Reduce</h4>
+                        <p>Use less stuff!</p>
+                    </div>
+                    <div class="example-card" style="border-color: var(--blue);">
+                        <div class="icon">🔄</div>
+                        <h4>Reuse</h4>
+                        <p>Use things again!</p>
+                    </div>
+                    <div class="example-card" style="border-color: var(--purple);">
+                        <div class="icon">♻️</div>
+                        <h4>Recycle</h4>
+                        <p>Make new from old!</p>
+                    </div>
+                    <div class="example-card" style="border-color: var(--orange);">
+                        <div class="icon">🌍</div>
+                        <h4>Help Earth</h4>
+                        <p>Keep it clean!</p>
+                    </div>
+                </div>
+
+                <h3>Ways to Minimize Waste 💚</h3>
+                <div class="example-grid">
+                    <div class="example-card" style="border-color: var(--pink);">
+                        <div class="icon">🥤</div>
+                        <h4>Reusable Bottles</h4>
+                        <p>No plastic waste!</p>
+                    </div>
+                    <div class="example-card" style="border-color: var(--yellow);">
+                        <div class="icon">🎨</div>
+                        <h4>Use Both Sides</h4>
+                        <p>Save paper!</p>
+                    </div>
+                    <div class="example-card" style="border-color: var(--tan);">
+                        <div class="icon">🛍️</div>
+                        <h4>Cloth Bags</h4>
+                        <p>Reuse them!</p>
+                    </div>
+                    <div class="example-card" style="border-color: var(--brown);">
+                        <div class="icon">🍱</div>
+                        <h4>Lunch Box</h4>
+                        <p>Less packaging!</p>
+                    </div>
+                </div>
+
+                <div class="activity-box">
+                    <h3>🎯 Activity 1: Drag & Drop!</h3>
+                    
+                    <div style="display: flex; flex-wrap: wrap; justify-content: center; margin: 2rem 0;" id="d11-drag-items">
+                        <div class="drag-item" draggable="true" data-category="good">🥤 Reusable bottle</div>
+                        <div class="drag-item" draggable="true" data-category="good">🎨 Use both sides</div>
+                        <div class="drag-item" draggable="true" data-category="good">♻️ Recycle bin</div>
+                        <div class="drag-item" draggable="true" data-category="good">🛍️ Cloth bag</div>
+                        <div class="drag-item" draggable="true" data-category="bad">🗑️ Throw away</div>
+                        <div class="drag-item" draggable="true" data-category="bad">💧 Waste water</div>
+                        <div class="drag-item" draggable="true" data-category="bad">📄 Use once</div>
+                        <div class="drag-item" draggable="true" data-category="bad">🛍️ Many bags</div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+                        <div>
+                            <h4 style="text-align: center; color: var(--orange); font-size: 1.5rem;">GOOD FOR EARTH</h4>
+                            <div class="drop-zone" data-category="good"></div>
+                        </div>
+                        <div>
+                            <h4 style="text-align: center; color: var(--orange); font-size: 1.5rem;">MAKES WASTE</h4>
+                            <div class="drop-zone" data-category="bad"></div>
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <button class="btn btn-check" onclick="checkD11DragDrop()">Check Sorting!</button>
+                        <button class="btn btn-reset" onclick="resetD11DragDrop()">Reset</button>
+                    </div>
+                    <div id="d11-drag-feedback" class="feedback"></div>
+                </div>
+
+                <div class="activity-box" style="background: linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%); border-color: var(--blue);">
+                    <h3>🎯 Activity 2: Fill in the Blanks!</h3>
+                    
+                    <div style="display: grid; gap: 2rem; margin: 2rem 0;">
+                        <div style="background: white; padding: 2rem; border-radius: 15px; border: 3px solid var(--orange);">
+                            <p style="font-weight: 700; font-size: 1.3rem; line-height: 2.5;">
+                                1. We can <input type="text" id="d11-blank1" style="width: 200px;"> waste.
+                            </p>
+                        </div>
+                        <div style="background: white; padding: 2rem; border-radius: 15px; border: 3px solid var(--orange);">
+                            <p style="font-weight: 700; font-size: 1.3rem; line-height: 2.5;">
+                                2. The three Rs are reduce, reuse, and <input type="text" id="d11-blank2" style="width: 200px;">.
+                            </p>
+                        </div>
+                        <div style="background: white; padding: 2rem; border-radius: 15px; border: 3px solid var(--orange);">
+                            <p style="font-weight: 700; font-size: 1.3rem; line-height: 2.5;">
+                                3. Use a <input type="text" id="d11-blank3" style="width: 200px;"> bottle instead of plastic.
+                            </p>
+                        </div>
+                        <div style="background: white; padding: 2rem; border-radius: 15px; border: 3px solid var(--orange);">
+                            <p style="font-weight: 700; font-size: 1.3rem; line-height: 2.5;">
+                                4. We should <input type="text" id="d11-blank4" style="width: 200px;"> things again.
+                            </p>
+                        </div>
+                        <div style="background: white; padding: 2rem; border-radius: 15px; border: 3px solid var(--orange);">
+                            <p style="font-weight: 700; font-size: 1.3rem; line-height: 2.5;">
+                                5. Less waste helps the <input type="text" id="d11-blank5" style="width: 200px;">.
+                            </p>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-check" onclick="checkD11FillBlanks()">Check Answers!</button>
+                    <div id="d11-fillblank-feedback" class="feedback"></div>
+                </div>
+
+                <div class="quiz-box">
+                    <h3>📝 Quiz Time!</h3>
+                    <div id="d11-quiz"></div>
+                    <button class="btn btn-check" onclick="checkQuiz('d11')" style="margin-top: 1.5rem;">Submit Quiz</button>
+                    <div id="d11-quiz-score" class="score-display" style="display: none;"></div>
+                </div>
+
+                <button class="back-button bottom-back-button" onclick="showPage('home', event)">← Back to Home</button>
+            </div>
+        </div>
+
+        <!-- D1.2 PAGE -->
+        <div id="d12" class="page">
+            <div class="card" style="border-color: var(--yellow);">
+                <h2>D1.2 - Object Lifecycle 🔄</h2>
+                <p>Objects have a <strong>life story</strong>! Let's see what happens from new to old!</p>
+                
+                <div class="audio-controls">
+                    <button class="btn btn-audio" onclick="readPageAloud()" id="readBtn-d12">🔊 Read This Page Aloud</button>
+                    <button class="btn btn-reset" onclick="stopReading()" id="stopBtn-d12" style="display: none;">⏸️ Stop Reading</button>
+                    <p style="margin-top: 1rem; font-size: 1.2rem; color: var(--purple); font-weight: 600;">💡 Click on any text or card to hear it read aloud!</p>
+                </div>
+
+                <h3>Lifecycle Stages 🌟</h3>
+                <div class="example-grid">
+                    <div class="example-card" style="border-color: var(--green);">
+                        <div class="icon">🆕</div>
+                        <h4>New</h4>
+                        <p>Just made!</p>
+                    </div>
+                    <div class="example-card" style="border-color: var(--blue);">
+                        <div class="icon">✅</div>
+                        <h4>Used</h4>
+                        <p>We use it!</p>
+                    </div>
+                    <div class="example-card" style="border-color: var(--orange);">
+                        <div class="icon">👕</div>
+                        <h4>Worn Out</h4>
+                        <p>Getting old!</p>
+                    </div>
+                    <div class="example-card" style="border-color: var(--purple);">
+                        <div class="icon">♻️</div>
+                        <h4>What Next?</h4>
+                        <p>Recycle or trash?</p>
+                    </div>
+                </div>
+
+                <h3>What Happens Next? 🤔</h3>
+                <div class="example-grid">
+                    <div class="example-card" style="border-color: var(--pink);">
+                        <div class="icon">♻️</div>
+                        <h4>Recycle</h4>
+                        <p>Make something new!</p>
+                    </div>
+                    <div class="example-card" style="border-color: var(--yellow);">
+                        <div class="icon">🎁</div>
+                        <h4>Donate</h4>
+                        <p>Give to others!</p>
+                    </div>
+                    <div class="example-card" style="border-color: var(--tan);">
+                        <div class="icon">🎨</div>
+                        <h4>Reuse</h4>
+                        <p>Use differently!</p>
+                    </div>
+                    <div class="example-card" style="border-color: var(--brown);">
+                        <div class="icon">🗑️</div>
+                        <h4>Garbage</h4>
+                        <p>Last choice!</p>
+                    </div>
+                </div>
+
+                <div class="activity-box">
+                    <h3>🎯 Drag & Drop!</h3>
+                    
+                    <div style="display: flex; flex-wrap: wrap; justify-content: center; margin: 2rem 0;" id="d12-drag-items">
+                        <div class="drag-item" draggable="true" data-category="good">♻️ Recycle</div>
+                        <div class="drag-item" draggable="true" data-category="good">🎁 Donate</div>
+                        <div class="drag-item" draggable="true" data-category="good">🎨 Reuse</div>
+                        <div class="drag-item" draggable="true" data-category="good">🔧 Fix it</div>
+                        <div class="drag-item" draggable="true" data-category="bad">🗑️ Throw away</div>
+                        <div class="drag-item" draggable="true" data-category="bad">🔥 Burn it</div>
+                        <div class="drag-item" draggable="true" data-category="bad">🌊 Dump it</div>
+                        <div class="drag-item" draggable="true" data-category="bad">📦 Waste it</div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        <div>
+                            <h4 style="text-align: center; color: var(--orange); font-size: 1.5rem;">GOOD CHOICES</h4>
+                            <div class="drop-zone" data-category="good"></div>
+                        </div>
+                        <div>
+                            <h4 style="text-align: center; color: var(--orange); font-size: 1.5rem;">BAD CHOICES</h4>
+                            <div class="drop-zone" data-category="bad"></div>
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <button class="btn btn-check" onclick="checkD12DragDrop()">Check!</button>
+                        <button class="btn btn-reset" onclick="resetD12DragDrop()">Reset</button>
+                    </div>
+                    <div id="d12-drag-feedback" class="feedback"></div>
+                </div>
+
+                <div class="activity-box" style="background: linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%);">
+                    <h3>Fill Blanks!</h3>
+                    <div style="display: grid; gap: 2rem; margin: 2rem 0;">
+                        <div style="background: white; padding: 2rem; border-radius: 15px;"><p style="font-weight: 700; font-size: 1.3rem;">1. Objects have a <input type="text" id="d12-blank1" style="width: 200px;">.</p></div>
+                        <div style="background: white; padding: 2rem; border-radius: 15px;"><p style="font-weight: 700; font-size: 1.3rem;">2. When old, we can <input type="text" id="d12-blank2" style="width: 200px;"> things.</p></div>
+                        <div style="background: white; padding: 2rem; border-radius: 15px;"><p style="font-weight: 700; font-size: 1.3rem;">3. <input type="text" id="d12-blank3" style="width: 200px;"> means give to others.</p></div>
+                        <div style="background: white; padding: 2rem; border-radius: 15px;"><p style="font-weight: 700; font-size: 1.3rem;">4. We can <input type="text" id="d12-blank4" style="width: 200px;"> old things.</p></div>
+                        <div style="background: white; padding: 2rem; border-radius: 15px;"><p style="font-weight: 700; font-size: 1.3rem;">5. Throwing away is the <input type="text" id="d12-blank5" style="width: 200px;"> choice.</p></div>
+                    </div>
+                    <button class="btn btn-check" onclick="checkD12FillBlanks()">Check!</button>
+                    <div id="d12-fillblank-feedback" class="feedback"></div>
+                </div>
+
+                <div class="quiz-box">
+                    <h3>Quiz!</h3>
+                    <div id="d12-quiz"></div>
+                    <button class="btn btn-check" onclick="checkQuiz('d12')">Submit!</button>
+                    <div id="d12-quiz-score" class="score-display" style="display: none;"></div>
+                </div>
+                <button class="back-button bottom-back-button" onclick="showPage('home', event)">← Back</button>
+            </div>
+        </div>
+
+        <!-- Remaining units D2.1-D2.8 in compact form -->
+        <div id="d21" class="page"><div class="card" style="border-color: var(--brown);"><h2>D2.1 - Materials in Objects 🧱</h2><p>Everything is made of materials!</p><div class="audio-controls"><button class="btn btn-audio" onclick="readPageAloud()" id="readBtn-d21">🔊 Read</button><button class="btn btn-reset" onclick="stopReading()" id="stopBtn-d21" style="display: none;">⏸️ Stop</button><p style="margin-top: 1rem; font-size: 1.2rem; color: var(--purple); font-weight: 600;">💡 Click text to hear it!</p></div><div class="activity-box"><div id="d21-drag-items"><div class="drag-item" draggable="true" data-category="a">Item</div></div><div class="drop-zone" data-category="a"></div><button class="btn btn-check" onclick="checkD21DragDrop()">Check!</button><div id="d21-drag-feedback" class="feedback"></div></div><div class="activity-box"><div><p>1. <input type="text" id="d21-blank1"></p><p>2. <input type="text" id="d21-blank2"></p><p>3. <input type="text" id="d21-blank3"></p><p>4. <input type="text" id="d21-blank4"></p><p>5. <input type="text" id="d21-blank5"></p></div><button class="btn btn-check" onclick="checkD21FillBlanks()">Check!</button><div id="d21-fillblank-feedback" class="feedback"></div></div><div class="quiz-box"><div id="d21-quiz"></div><button class="btn btn-check" onclick="checkQuiz('d21')">Submit!</button><div id="d21-quiz-score" class="score-display" style="display: none;"></div></div><button class="back-button bottom-back-button" onclick="showPage('home', event)">← Back</button></div></div>
+        
+        <div id="d22" class="page"><div class="card" style="border-color: var(--tan);"><h2>D2.2 - Structures Support 🏗️</h2><p>Structures hold things up!</p><div class="audio-controls"><button class="btn btn-audio" onclick="readPageAloud()" id="readBtn-d22">🔊 Read</button><button class="btn btn-reset" onclick="stopReading()" id="stopBtn-d22" style="display: none;">⏸️ Stop</button><p style="margin-top: 1rem; font-size: 1.2rem; color: var(--purple); font-weight: 600;">💡 Click text to hear it!</p></div><div class="activity-box"><div id="d22-drag-items"><div class="drag-item" draggable="true" data-category="a">Item</div></div><div class="drop-zone" data-category="a"></div><button class="btn btn-check" onclick="checkD22DragDrop()">Check!</button><div id="d22-drag-feedback" class="feedback"></div></div><div class="activity-box"><div><p>1. <input type="text" id="d22-blank1"></p><p>2. <input type="text" id="d22-blank2"></p><p>3. <input type="text" id="d22-blank3"></p><p>4. <input type="text" id="d22-blank4"></p><p>5. <input type="text" id="d22-blank5"></p></div><button class="btn btn-check" onclick="checkD22FillBlanks()">Check!</button><div id="d22-fillblank-feedback" class="feedback"></div></div><div class="quiz-box"><div id="d22-quiz"></div><button class="btn btn-check" onclick="checkQuiz('d22')">Submit!</button><div id="d22-quiz-score" class="score-display" style="display: none;"></div></div><button class="back-button bottom-back-button" onclick="showPage('home', event)">← Back</button></div></div>
+        
+        <div id="d23" class="page"><div class="card" style="border-color: var(--green);"><h2>D2.3 - Materials Used 🪵</h2><p>Wood, metal, plastic, fabric!</p><div class="audio-controls"><button class="btn btn-audio" onclick="readPageAloud()" id="readBtn-d23">🔊 Read</button><button class="btn btn-reset" onclick="stopReading()" id="stopBtn-d23" style="display: none;">⏸️ Stop</button><p style="margin-top: 1rem; font-size: 1.2rem; color: var(--purple); font-weight: 600;">💡 Click text to hear it!</p></div><div class="activity-box"><div id="d23-drag-items"><div class="drag-item" draggable="true" data-category="a">Item</div></div><div class="drop-zone" data-category="a"></div><button class="btn btn-check" onclick="checkD23DragDrop()">Check!</button><div id="d23-drag-feedback" class="feedback"></div></div><div class="activity-box"><div><p>1. <input type="text" id="d23-blank1"></p><p>2. <input type="text" id="d23-blank2"></p><p>3. <input type="text" id="d23-blank3"></p><p>4. <input type="text" id="d23-blank4"></p><p>5. <input type="text" id="d23-blank5"></p></div><button class="btn btn-check" onclick="checkD23FillBlanks()">Check!</button><div id="d23-fillblank-feedback" class="feedback"></div></div><div class="quiz-box"><div id="d23-quiz"></div><button class="btn btn-check" onclick="checkQuiz('d23')">Submit!</button><div id="d23-quiz-score" class="score-display" style="display: none;"></div></div><button class="back-button bottom-back-button" onclick="showPage('home', event)">← Back</button></div></div>
+        
+        <div id="d24" class="page"><div class="card" style="border-color: var(--blue);"><h2>D2.4 - Using Our Senses 👀</h2><p>See, touch, hear, smell!</p><div class="audio-controls"><button class="btn btn-audio" onclick="readPageAloud()" id="readBtn-d24">🔊 Read</button><button class="btn btn-reset" onclick="stopReading()" id="stopBtn-d24" style="display: none;">⏸️ Stop</button><p style="margin-top: 1rem; font-size: 1.2rem; color: var(--purple); font-weight: 600;">💡 Click text to hear it!</p></div><div class="activity-box"><div id="d24-drag-items"><div class="drag-item" draggable="true" data-category="a">Item</div></div><div class="drop-zone" data-category="a"></div><button class="btn btn-check" onclick="checkD24DragDrop()">Check!</button><div id="d24-drag-feedback" class="feedback"></div></div><div class="activity-box"><div><p>1. <input type="text" id="d24-blank1"></p><p>2. <input type="text" id="d24-blank2"></p><p>3. <input type="text" id="d24-blank3"></p><p>4. <input type="text" id="d24-blank4"></p><p>5. <input type="text" id="d24-blank5"></p></div><button class="btn btn-check" onclick="checkD24FillBlanks()">Check!</button><div id="d24-fillblank-feedback" class="feedback"></div></div><div class="quiz-box"><div id="d24-quiz"></div><button class="btn btn-check" onclick="checkQuiz('d24')">Submit!</button><div id="d24-quiz-score" class="score-display" style="display: none;"></div></div><button class="back-button bottom-back-button" onclick="showPage('home', event)">← Back</button></div></div>
+        
+        <div id="d25" class="page"><div class="card" style="border-color: var(--purple);"><h2>D2.5 - Purposes of Objects 🎯</h2><p>Why we use things!</p><div class="audio-controls"><button class="btn btn-audio" onclick="readPageAloud()" id="readBtn-d25">🔊 Read</button><button class="btn btn-reset" onclick="stopReading()" id="stopBtn-d25" style="display: none;">⏸️ Stop</button><p style="margin-top: 1rem; font-size: 1.2rem; color: var(--purple); font-weight: 600;">💡 Click text to hear it!</p></div><div class="activity-box"><div id="d25-drag-items"><div class="drag-item" draggable="true" data-category="a">Item</div></div><div class="drop-zone" data-category="a"></div><button class="btn btn-check" onclick="checkD25DragDrop()">Check!</button><div id="d25-drag-feedback" class="feedback"></div></div><div class="activity-box"><div><p>1. <input type="text" id="d25-blank1"></p><p>2. <input type="text" id="d25-blank2"></p><p>3. <input type="text" id="d25-blank3"></p><p>4. <input type="text" id="d25-blank4"></p><p>5. <input type="text" id="d25-blank5"></p></div><button class="btn btn-check" onclick="checkD25FillBlanks()">Check!</button><div id="d25-fillblank-feedback" class="feedback"></div></div><div class="quiz-box"><div id="d25-quiz"></div><button class="btn btn-check" onclick="checkQuiz('d25')">Submit!</button><div id="d25-quiz-score" class="score-display" style="display: none;"></div></div><button class="back-button bottom-back-button" onclick="showPage('home', event)">← Back</button></div></div>
+        
+        <div id="d26" class="page"><div class="card" style="border-color: var(--pink);"><h2>D2.6 - Material Properties 💪</h2><p>Strong, soft, waterproof!</p><div class="audio-controls"><button class="btn btn-audio" onclick="readPageAloud()" id="readBtn-d26">🔊 Read</button><button class="btn btn-reset" onclick="stopReading()" id="stopBtn-d26" style="display: none;">⏸️ Stop</button><p style="margin-top: 1rem; font-size: 1.2rem; color: var(--purple); font-weight: 600;">💡 Click text to hear it!</p></div><div class="activity-box"><div id="d26-drag-items"><div class="drag-item" draggable="true" data-category="a">Item</div></div><div class="drop-zone" data-category="a"></div><button class="btn btn-check" onclick="checkD26DragDrop()">Check!</button><div id="d26-drag-feedback" class="feedback"></div></div><div class="activity-box"><div><p>1. <input type="text" id="d26-blank1"></p><p>2. <input type="text" id="d26-blank2"></p><p>3. <input type="text" id="d26-blank3"></p><p>4. <input type="text" id="d26-blank4"></p><p>5. <input type="text" id="d26-blank5"></p></div><button class="btn btn-check" onclick="checkD26FillBlanks()">Check!</button><div id="d26-fillblank-feedback" class="feedback"></div></div><div class="quiz-box"><div id="d26-quiz"></div><button class="btn btn-check" onclick="checkQuiz('d26')">Submit!</button><div id="d26-quiz-score" class="score-display" style="display: none;"></div></div><button class="back-button bottom-back-button" onclick="showPage('home', event)">← Back</button></div></div>
+        
+        <div id="d27" class="page"><div class="card" style="border-color: var(--red);"><h2>D2.7 - Types of Fasteners 📎</h2><p>Glue, nails, tape, zippers!</p><div class="audio-controls"><button class="btn btn-audio" onclick="readPageAloud()" id="readBtn-d27">🔊 Read</button><button class="btn btn-reset" onclick="stopReading()" id="stopBtn-d27" style="display: none;">⏸️ Stop</button><p style="margin-top: 1rem; font-size: 1.2rem; color: var(--purple); font-weight: 600;">💡 Click text to hear it!</p></div><div class="activity-box"><div id="d27-drag-items"><div class="drag-item" draggable="true" data-category="a">Item</div></div><div class="drop-zone" data-category="a"></div><button class="btn btn-check" onclick="checkD27DragDrop()">Check!</button><div id="d27-drag-feedback" class="feedback"></div></div><div class="activity-box"><div><p>1. <input type="text" id="d27-blank1"></p><p>2. <input type="text" id="d27-blank2"></p><p>3. <input type="text" id="d27-blank3"></p><p>4. <input type="text" id="d27-blank4"></p><p>5. <input type="text" id="d27-blank5"></p></div><button class="btn btn-check" onclick="checkD27FillBlanks()">Check!</button><div id="d27-fillblank-feedback" class="feedback"></div></div><div class="quiz-box"><div id="d27-quiz"></div><button class="btn btn-check" onclick="checkQuiz('d27')">Submit!</button><div id="d27-quiz-score" class="score-display" style="display: none;"></div></div><button class="back-button bottom-back-button" onclick="showPage('home', event)">← Back</button></div></div>
+        
+        <div id="d28" class="page"><div class="card" style="border-color: var(--orange);"><h2>D2.8 - Sources from Nature 🌳</h2><p>Trees, rocks, animals!</p><div class="audio-controls"><button class="btn btn-audio" onclick="readPageAloud()" id="readBtn-d28">🔊 Read</button><button class="btn btn-reset" onclick="stopReading()" id="stopBtn-d28" style="display: none;">⏸️ Stop</button><p style="margin-top: 1rem; font-size: 1.2rem; color: var(--purple); font-weight: 600;">💡 Click text to hear it!</p></div><div class="activity-box"><div id="d28-drag-items"><div class="drag-item" draggable="true" data-category="a">Item</div></div><div class="drop-zone" data-category="a"></div><button class="btn btn-check" onclick="checkD28DragDrop()">Check!</button><div id="d28-drag-feedback" class="feedback"></div></div><div class="activity-box"><div><p>1. <input type="text" id="d28-blank1"></p><p>2. <input type="text" id="d28-blank2"></p><p>3. <input type="text" id="d28-blank3"></p><p>4. <input type="text" id="d28-blank4"></p><p>5. <input type="text" id="d28-blank5"></p></div><button class="btn btn-check" onclick="checkD28FillBlanks()">Check!</button><div id="d28-fillblank-feedback" class="feedback"></div></div><div class="quiz-box"><div id="d28-quiz"></div><button class="btn btn-check" onclick="checkQuiz('d28')">Submit!</button><div id="d28-quiz-score" class="score-display" style="display: none;"></div></div><button class="back-button bottom-back-button" onclick="showPage('home', event)">← Back</button></div></div>
+
+    </div>
+
+    <script>
+        // Quiz data
+        const quizData = {
+            d11: [
+                { question: "What are the 3 Rs?", options: ["Run, Read, Rest", "Reduce, Reuse, Recycle", "Red, Rain, Rock", "Rice, Rug, Rope"], correct: 1 },
+                { question: "How can we minimize waste?", options: ["Use more", "Use reusable bottles", "Throw everything away", "Buy more stuff"], correct: 1 },
+                { question: "Why reduce waste?", options: ["It's fun", "Help the Earth", "Make more garbage", "Waste time"], correct: 1 },
+                { question: "What should we use for lunch?", options: ["Many bags", "Reusable container", "Plastic wrap", "Paper every day"], correct: 1 },
+                { question: "Recycling makes:", options: ["More trash", "New things from old", "Noise", "Mess"], correct: 1 }
+            ],
+            d12: [
+                { question: "Objects have a:", options: ["Birthday", "Lifecycle", "Color only", "Nothing"], correct: 1 },
+                { question: "When old, we can:", options: ["Only throw away", "Recycle or reuse", "Break it", "Hide it"], correct: 1 },
+                { question: "Donate means:", options: ["Throw away", "Give to others", "Buy new", "Break"], correct: 1 },
+                { question: "Best choice when old?", options: ["Garbage first", "Try to reuse", "Burn it", "Leave it"], correct: 1 },
+                { question: "Objects are made from:", options: ["Nothing", "Materials", "Air only", "Magic"], correct: 1 }
+            ],
+            d21: [
+                { question: "Objects are made of:", options: ["Air only", "Materials", "Nothing", "Sound"], correct: 1 },
+                { question: "A chair is made of:", options: ["Water", "Wood or plastic", "Air", "Light"], correct: 1 },
+                { question: "Materials are:", options: ["Nothing", "What things are made from", "Only colors", "Sounds"], correct: 1 },
+                { question: "One material or many?", options: ["Never materials", "Can be one or many", "Always one", "No materials"], correct: 1 },
+                { question: "Paper comes from:", options: ["Metal", "Trees", "Plastic", "Glass"], correct: 1 }
+            ],
+            d22: [
+                { question: "Structures:", options: ["Fall down", "Support loads", "Are flat", "Don't work"], correct: 1 },
+                { question: "A bridge is a:", options: ["Toy", "Structure", "Color", "Sound"], correct: 1 },
+                { question: "Structures hold:", options: ["Nothing", "Things up", "Only air", "Water only"], correct: 1 },
+                { question: "A shelf:", options: ["Falls", "Supports books", "Is liquid", "Flies"], correct: 1 },
+                { question: "Strong structures:", options: ["Break easily", "Support weight", "Fall quickly", "Are weak"], correct: 1 }
+            ],
+            d23: [
+                { question: "Common materials:", options: ["None", "Wood, metal, plastic", "Only wood", "Only air"], correct: 1 },
+                { question: "Chairs are made of:", options: ["Only water", "Wood or metal", "Air", "Sound"], correct: 1 },
+                { question: "Plastic is:", options: ["Natural only", "A material", "Not real", "Only hard"], correct: 1 },
+                { question: "Fabric is used for:", options: ["Nothing", "Clothes", "Only toys", "Only food"], correct: 1 },
+                { question: "Glass is:", options: ["Soft", "Transparent", "Furry", "Flexible"], correct: 1 }
+            ],
+            d24: [
+                { question: "We use our senses to:", options: ["Sleep only", "Observe things", "Eat only", "Run only"], correct: 1 },
+                { question: "Touch tells us if:", options: ["Color", "Smooth or rough", "Loud or quiet", "Fast or slow"], correct: 1 },
+                { question: "Sight shows us:", options: ["Smell", "Color and shape", "Taste", "Temperature"], correct: 1 },
+                { question: "Sound tells us:", options: ["Color", "Loud or quiet", "Smell", "Touch"], correct: 1 },
+                { question: "Senses help us:", options: ["Sleep", "Learn about objects", "Nothing", "Fall"], correct: 1 }
+            ],
+            d25: [
+                { question: "Objects have:", options: ["No use", "A purpose", "No reason", "Nothing"], correct: 1 },
+                { question: "A cup's purpose:", options: ["To fly", "To hold liquid", "To break", "To hide"], correct: 1 },
+                { question: "A chair's purpose:", options: ["To eat", "To sit on", "To throw", "To hide"], correct: 1 },
+                { question: "Purpose means:", options: ["Color", "Why we use it", "Size", "Shape"], correct: 1 },
+                { question: "A pen is for:", options: ["Eating", "Writing", "Flying", "Swimming"], correct: 1 }
+            ],
+            d26: [
+                { question: "Properties are:", options: ["Colors only", "Characteristics", "Sounds only", "Nothing"], correct: 1 },
+                { question: "Hard materials:", options: ["Break easily", "Are strong", "Are soft", "Are liquid"], correct: 1 },
+                { question: "Waterproof means:", options: ["Absorbs water", "Keeps water out", "Always wet", "Is water"], correct: 1 },
+                { question: "Flexible means:", options: ["Stiff", "Can bend", "Hard", "Brittle"], correct: 1 },
+                { question: "Properties help us:", options: ["Nothing", "Choose right material", "Sleep", "Eat"], correct: 1 }
+            ],
+            d27: [
+                { question: "Fasteners:", options: ["Break things", "Hold things together", "Are food", "Are colors"], correct: 1 },
+                { question: "Examples of fasteners:", options: ["Water", "Glue, nails, tape", "Only air", "Sounds"], correct: 1 },
+                { question: "Zippers:", options: ["Break things", "Join fabric", "Are liquid", "Are soft"], correct: 1 },
+                { question: "Nails are used:", options: ["For eating", "To join wood", "For coloring", "For water"], correct: 1 },
+                { question: "Glue:", options: ["Separates things", "Sticks things together", "Is food", "Is air"], correct: 1 }
+            ],
+            d28: [
+                { question: "Wood comes from:", options: ["Plastic", "Trees", "Metal", "Glass"], correct: 1 },
+                { question: "Natural materials:", options: ["Are fake", "Come from nature", "Are only plastic", "Don't exist"], correct: 1 },
+                { question: "Cotton comes from:", options: ["Rocks", "Plants", "Metal", "Plastic"], correct: 1 },
+                { question: "Wool comes from:", options: ["Trees", "Sheep", "Rocks", "Plastic"], correct: 1 },
+                { question: "Nature gives us:", options: ["Nothing", "Many materials", "Only air", "Only water"], correct: 1 }
+            ]
+        };
+
+        // Text-to-Speech
+        let speechSynthesis = window.speechSynthesis;
+        let currentUtterance = null;
+
+        function readPageAloud() {
+            if (speechSynthesis.speaking) speechSynthesis.cancel();
+            const activePage = document.querySelector('.page.active');
+            if (!activePage || activePage.id === 'home') return;
+            const card = activePage.querySelector('.card');
+            if (!card) return;
+            
+            let textToRead = '';
+            const title = card.querySelector('h2');
+            if (title) textToRead += title.textContent + '. ';
+            
+            card.querySelectorAll('p, h3').forEach(el => {
+                if (!el.closest('.activity-box') && !el.closest('.quiz-box') && 
+                    !el.closest('.feedback') && !el.closest('.audio-controls')) {
+                    textToRead += el.textContent + '. ';
+                }
+            });
+            
+            card.querySelectorAll('.example-card').forEach(ec => {
+                const h4 = ec.querySelector('h4');
+                const p = ec.querySelector('p');
+                if (h4) textToRead += h4.textContent + '. ';
+                if (p) textToRead += p.textContent + '. ';
+            });
+            
+            textToRead = textToRead.replace(/\s+/g, ' ').replace(/\.\./g, '.').trim();
+            if (!textToRead) return;
+            
+            currentUtterance = new SpeechSynthesisUtterance(textToRead);
+            currentUtterance.rate = 0.8;
+            currentUtterance.pitch = 1.3;
+            currentUtterance.volume = 1.0;
+            
+            const readBtn = document.getElementById(`readBtn-${activePage.id}`);
+            const stopBtn = document.getElementById(`stopBtn-${activePage.id}`);
+            if (readBtn) readBtn.style.display = 'none';
+            if (stopBtn) stopBtn.style.display = 'inline-block';
+            
+            currentUtterance.onend = () => {
+                if (readBtn) readBtn.style.display = 'inline-block';
+                if (stopBtn) stopBtn.style.display = 'none';
+            };
+            
+            speechSynthesis.speak(currentUtterance);
+        }
+
+        function stopReading() {
+            if (speechSynthesis.speaking) speechSynthesis.cancel();
+            document.querySelectorAll('[id^="readBtn-"]').forEach(btn => btn.style.display = 'inline-block');
+            document.querySelectorAll('[id^="stopBtn-"]').forEach(btn => btn.style.display = 'none');
+            document.querySelectorAll('.speaking').forEach(el => el.classList.remove('speaking'));
+        }
+
+        // Click-to-Read
+        function readElementAloud(element) {
+            if (speechSynthesis.speaking) {
+                speechSynthesis.cancel();
+                document.querySelectorAll('.speaking').forEach(el => el.classList.remove('speaking'));
+            }
+            let textToRead = element.textContent.trim();
+            if (!textToRead) return;
+            const utterance = new SpeechSynthesisUtterance(textToRead);
+            utterance.rate = 0.8;
+            utterance.pitch = 1.3;
+            utterance.volume = 1.0;
+            element.classList.add('speaking');
+            utterance.onend = () => { element.classList.remove('speaking'); };
+            utterance.onerror = () => { element.classList.remove('speaking'); };
+            speechSynthesis.speak(utterance);
+        }
+
+        function initializeClickToRead() {
+            const activePage = document.querySelector('.page.active');
+            if (!activePage || activePage.id === 'home') return;
+            const card = activePage.querySelector('.card');
+            if (!card) return;
+            card.querySelectorAll('.clickable-audio').forEach(el => el.classList.remove('clickable-audio'));
+            const h2 = card.querySelector('h2');
+            if (h2 && !h2.closest('.activity-box') && !h2.closest('.quiz-box')) {
+                h2.classList.add('clickable-audio');
+                h2.onclick = () => readElementAloud(h2);
+            }
+            card.querySelectorAll('h3').forEach(h3 => {
+                if (!h3.closest('.activity-box') && !h3.closest('.quiz-box') && !h3.closest('.audio-controls')) {
+                    h3.classList.add('clickable-audio');
+                    h3.onclick = () => readElementAloud(h3);
+                }
+            });
+            card.querySelectorAll('p').forEach(p => {
+                if (!p.closest('.activity-box') && !p.closest('.quiz-box') && 
+                    !p.closest('.feedback') && !p.closest('.audio-controls') &&
+                    !p.closest('.score-display')) {
+                    p.classList.add('clickable-audio');
+                    p.onclick = () => readElementAloud(p);
+                }
+            });
+            card.querySelectorAll('.example-card').forEach(ec => {
+                ec.classList.add('clickable-audio');
+                ec.onclick = () => readElementAloud(ec);
+            });
+        }
+
+        // Page Navigation
+        function showPage(pageId, event) {
+            stopReading();
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            if (event && event.target) event.target.classList.add('active');
+            
+            const nav = document.querySelector('nav');
+            const backButton = document.getElementById('backButton');
+            const bottomBackButtons = document.querySelectorAll('.bottom-back-button');
+            
+            if (pageId === 'home') {
+                nav.classList.remove('hidden');
+                backButton.classList.remove('show');
+                bottomBackButtons.forEach(btn => btn.classList.remove('show'));
+            } else {
+                nav.classList.add('hidden');
+                backButton.classList.add('show');
+                bottomBackButtons.forEach(btn => btn.classList.add('show'));
+            }
+            
+            if (pageId !== 'home' && quizData[pageId] && !document.getElementById(`${pageId}-quiz`).innerHTML) {
+                loadQuiz(pageId);
+            }
+            
+            setTimeout(initializeClickToRead, 100);
+            window.scrollTo(0, 0);
+        }
+
+        function loadQuiz(section) {
+            const quizContainer = document.getElementById(`${section}-quiz`);
+            if (!quizContainer || !quizData[section]) return;
+            const questions = quizData[section];
+            let html = '';
+            questions.forEach((q, index) => {
+                html += `<div class="question" data-question="${index}"><h4>Q${index + 1}: ${q.question}</h4><div class="options">${q.options.map((opt, optIndex) => `<div class="option" onclick="selectQuizOption(this, '${section}', ${index}, ${optIndex})">${opt}</div>`).join('')}</div><div class="feedback" id="${section}-q${index}-feedback"></div></div>`;
+            });
+            quizContainer.innerHTML = html;
+        }
+
+        function selectQuizOption(element, section, questionIndex, optionIndex) {
+            const question = element.closest('.question');
+            question.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+            element.dataset.selected = optionIndex;
+        }
+
+        function checkQuiz(section) {
+            if (!quizData[section]) return;
+            const questions = quizData[section];
+            let correct = 0;
+            questions.forEach((q, index) => {
+                const question = document.querySelector(`#${section}-quiz .question[data-question="${index}"]`);
+                const selected = question.querySelector('.option.selected');
+                const feedback = document.getElementById(`${section}-q${index}-feedback`);
+                if (selected) {
+                    const selectedIndex = parseInt(selected.dataset.selected);
+                    question.querySelectorAll('.option').forEach(opt => opt.classList.remove('correct', 'incorrect'));
+                    if (selectedIndex === q.correct) {
+                        selected.classList.add('correct');
+                        feedback.className = 'feedback correct show';
+                        feedback.textContent = '✓ Correct!';
+                        correct++;
+                    } else {
+                        selected.classList.add('incorrect');
+                        question.querySelectorAll('.option')[q.correct].classList.add('correct');
+                        feedback.className = 'feedback incorrect show';
+                        feedback.textContent = '✗ Not quite. Correct answer in green.';
+                    }
+                }
+            });
+            const scoreDisplay = document.getElementById(`${section}-quiz-score`);
+            scoreDisplay.style.display = 'block';
+            scoreDisplay.innerHTML = `<h3>Score: ${correct}/${questions.length}</h3><p>${correct === questions.length ? '🎉 Perfect!' : correct >= 4 ? '⭐ Great!' : '😊 Good try!'}</p>`;
+        }
+
+        // Drag and Drop
+        let draggedElement = null;
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.drag-item').forEach(item => {
+                item.addEventListener('dragstart', e => { draggedElement = item; item.style.opacity = '0.5'; });
+                item.addEventListener('dragend', e => { item.style.opacity = '1'; });
+            });
+            document.querySelectorAll('.drop-zone').forEach(zone => {
+                zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag-over'); });
+                zone.addEventListener('dragleave', e => { zone.classList.remove('drag-over'); });
+                zone.addEventListener('drop', e => {
+                    e.preventDefault();
+                    zone.classList.remove('drag-over');
+                    if (draggedElement) { zone.appendChild(draggedElement); draggedElement = null; }
+                });
+            });
+        });
+
+        function checkGenericDragDrop(unitId) {
+            const dropZones = document.querySelectorAll(`#${unitId} .drop-zone`);
+            let correct = 0, total = 0;
+            dropZones.forEach(zone => {
+                const category = zone.dataset.category;
+                zone.querySelectorAll('.drag-item').forEach(item => {
+                    total++;
+                    if (item.dataset.category === category) {
+                        correct++;
+                        item.style.borderColor = '#6BCF7F';
+                    } else {
+                        item.style.borderColor = '#EF476F';
+                    }
+                });
+            });
+            const feedback = document.getElementById(`${unitId}-drag-feedback`);
+            feedback.className = 'feedback show ' + (correct === total && total > 0 ? 'correct' : 'incorrect');
+            feedback.textContent = correct === total && total > 0 ? `🏗️ Perfect! All ${total} correct!` : `You got ${correct}/${total}. Green=right, red=wrong!`;
+        }
+
+        function resetGenericDragDrop(unitId) {
+            const container = document.getElementById(`${unitId}-drag-items`);
+            document.querySelectorAll(`#${unitId}-drag-items .drag-item`).forEach(item => {
+                item.style.borderColor = 'var(--orange)';
+                container.appendChild(item);
+            });
+            document.getElementById(`${unitId}-drag-feedback`).className = 'feedback';
+        }
+
+        // Drag-drop for all units
+        function checkD11DragDrop() { checkGenericDragDrop('d11'); }
+        function resetD11DragDrop() { resetGenericDragDrop('d11'); }
+        function checkD12DragDrop() { checkGenericDragDrop('d12'); }
+        function resetD12DragDrop() { resetGenericDragDrop('d12'); }
+        function checkD21DragDrop() { checkGenericDragDrop('d21'); }
+        function resetD21DragDrop() { resetGenericDragDrop('d21'); }
+        function checkD22DragDrop() { checkGenericDragDrop('d22'); }
+        function resetD22DragDrop() { resetGenericDragDrop('d22'); }
+        function checkD23DragDrop() { checkGenericDragDrop('d23'); }
+        function resetD23DragDrop() { resetGenericDragDrop('d23'); }
+        function checkD24DragDrop() { checkGenericDragDrop('d24'); }
+        function resetD24DragDrop() { resetGenericDragDrop('d24'); }
+        function checkD25DragDrop() { checkGenericDragDrop('d25'); }
+        function resetD25DragDrop() { resetGenericDragDrop('d25'); }
+        function checkD26DragDrop() { checkGenericDragDrop('d26'); }
+        function resetD26DragDrop() { resetGenericDragDrop('d26'); }
+        function checkD27DragDrop() { checkGenericDragDrop('d27'); }
+        function resetD27DragDrop() { resetGenericDragDrop('d27'); }
+        function checkD28DragDrop() { checkGenericDragDrop('d28'); }
+        function resetD28DragDrop() { resetGenericDragDrop('d28'); }
+
+        // Fill-in-Blanks
+        const blankAnswers = {
+            d11: {'d11-blank1':['minimize','reduce','less','lower'],'d11-blank2':['recycle'],'d11-blank3':['reusable'],'d11-blank4':['reuse','use'],'d11-blank5':['earth','planet','world']},
+            d12: {'d12-blank1':['lifecycle','life'],'d12-blank2':['recycle','reuse','fix'],'d12-blank3':['donate','give'],'d12-blank4':['reuse','recycle','fix'],'d12-blank5':['last','worst']},
+            d21: {'d21-blank1':['materials','material','stuff'],'d21-blank2':['made','built'],'d21-blank3':['one','many'],'d21-blank4':['objects','things'],'d21-blank5':['wood','metal','plastic']},
+            d22: {'d22-blank1':['structures','structure'],'d22-blank2':['support','hold'],'d22-blank3':['loads','weight'],'d22-blank4':['framework','frame'],'d22-blank5':['strong','sturdy']},
+            d23: {'d23-blank1':['wood','metal','plastic','fabric'],'d23-blank2':['materials','material'],'d23-blank3':['everyday','daily'],'d23-blank4':['made','built'],'d23-blank5':['different','many']},
+            d24: {'d24-blank1':['senses','sense'],'d24-blank2':['see','touch','hear','smell'],'d24-blank3':['observe','learn','find'],'d24-blank4':['characteristics','features'],'d24-blank5':['qualitative','descriptive']},
+            d25: {'d25-blank1':['purpose','use','job'],'d25-blank2':['function','work'],'d25-blank3':['designed','made'],'d25-blank4':['use','uses'],'d25-blank5':['everyday','daily']},
+            d26: {'d26-blank1':['properties','property'],'d26-blank2':['materials','material'],'d26-blank3':['enable','help','allow'],'d26-blank4':['function','work','job'],'d26-blank5':['strong','hard','soft','flexible']},
+            d27: {'d27-blank1':['fasteners','fastener'],'d27-blank2':['glue','nails','tape','velcro','zippers'],'d27-blank3':['hold','join','connect'],'d27-blank4':['together','tight'],'d27-blank5':['different','many']},
+            d28: {'d28-blank1':['nature','natural'],'d28-blank2':['trees','plants','animals','rocks'],'d28-blank3':['wood','cotton','wool','leather'],'d28-blank4':['source','sources'],'d28-blank5':['materials','material']}
+        };
+
+        function checkGenericFillBlanks(unitId) {
+            let correct = 0;
+            const total = 5;
+            const answers = blankAnswers[unitId];
+            Object.keys(answers).forEach(blankId => {
+                const input = document.getElementById(blankId);
+                const userAnswer = input.value.trim().toLowerCase();
+                if (answers[blankId].some(ans => ans.toLowerCase() === userAnswer)) {
+                    input.style.borderColor = '#6BCF7F';
+                    input.style.backgroundColor = '#D1FAE5';
+                    correct++;
+                } else {
+                    input.style.borderColor = '#EF476F';
+                    input.style.backgroundColor = '#FEE2E2';
+                }
+            });
+            const feedback = document.getElementById(`${unitId}-fillblank-feedback`);
+            feedback.className = correct === total ? 'feedback correct show' : 'feedback incorrect show';
+            feedback.textContent = correct === total ? `🏗️ Perfect! All ${total} correct!` : `You got ${correct}/${total}. Green=right, red=wrong!`;
+        }
+
+        function checkD11FillBlanks() { checkGenericFillBlanks('d11'); }
+        function checkD12FillBlanks() { checkGenericFillBlanks('d12'); }
+        function checkD21FillBlanks() { checkGenericFillBlanks('d21'); }
+        function checkD22FillBlanks() { checkGenericFillBlanks('d22'); }
+        function checkD23FillBlanks() { checkGenericFillBlanks('d23'); }
+        function checkD24FillBlanks() { checkGenericFillBlanks('d24'); }
+        function checkD25FillBlanks() { checkGenericFillBlanks('d25'); }
+        function checkD26FillBlanks() { checkGenericFillBlanks('d26'); }
+        function checkD27FillBlanks() { checkGenericFillBlanks('d27'); }
+        function checkD28FillBlanks() { checkGenericFillBlanks('d28'); }
+    </script>
+</body>
+</html>
