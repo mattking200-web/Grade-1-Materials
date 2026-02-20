@@ -3,669 +3,1062 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grade 1 Science - Everyday Materials, Objects, and Structures</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <title>Materials & Objects! - Grade 1 Science</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Londrina+Solid:wght@400;900&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --orange-primary: #FF8C42; --orange-dark: #E67A2E;
-            --brown-primary: #8B5A3C; --brown-light: #A67C52;
-            --gray-primary: #6B7280; --gray-light: #E5E7EB;
-            --green-success: #10B981; --red-error: #EF4444;
-            --yellow-accent: #FCD34D; --bg-cream: #FFF8F0;
+            --recycle-green: #06A77D;
+            --orange-fun: #FF6B35;
+            --blue-sky: #4DA8DA;
+            --yellow-sun: #F7B801;
+            --purple-grape: #9B59B6;
+            --red-apple: #E63946;
+            --dark-text: #2C3E50;
         }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Quicksand', sans-serif;
-            background: linear-gradient(135deg, var(--bg-cream) 0%, #FFE4CC 100%);
-            color: #333; min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #F0F4F8 0%, #D9E2EC 100%);
+            color: var(--dark-text);
+            overflow-x: hidden;
         }
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        .main-header {
-            background: linear-gradient(135deg, var(--brown-primary) 0%, var(--brown-light) 100%);
-            border-radius: 20px; padding: 40px; margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2); text-align: center;
-            position: relative; overflow: hidden;
+        
+        /* Floating background elements */
+        .bg-floaters {
+            position: fixed; width: 100%; height: 100%; overflow: hidden; z-index: -1;
         }
-        .main-header::before {
-            content: ''; position: absolute; top: -50%; right: -10%;
-            width: 400px; height: 400px;
-            background: rgba(255,255,255,0.1); border-radius: 50%;
+        .floater {
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0.15;
+            animation: float-around 20s ease-in-out infinite;
         }
-        .main-header h1 {
-            font-family: 'Fredoka', sans-serif; font-size: 2.8em; color: white;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
-            margin-bottom: 15px; position: relative; z-index: 1;
+        .floater:nth-child(1) { top: 10%; left: 5%; animation-duration: 15s; }
+        .floater:nth-child(2) { top: 60%; left: 80%; animation-duration: 18s; animation-delay: 2s; }
+        .floater:nth-child(3) { top: 30%; left: 15%; animation-duration: 22s; animation-delay: 4s; }
+        .floater:nth-child(4) { top: 70%; right: 10%; animation-duration: 19s; animation-delay: 1s; }
+        @keyframes float-around {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(30px, -30px) rotate(90deg); }
+            50% { transform: translate(-20px, 20px) rotate(180deg); }
+            75% { transform: translate(40px, 30px) rotate(270deg); }
         }
-        .main-header .subtitle {
-            font-size: 1.5em; color: white; font-weight: 600;
-            position: relative; z-index: 1;
-        }
-        .nav-container {
-            background: white; border-radius: 20px; padding: 25px; margin-bottom: 30px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1); border: 3px solid var(--orange-primary);
-        }
-        .nav-title {
-            font-family: 'Fredoka', sans-serif; font-size: 1.8em;
-            color: var(--brown-primary); margin-bottom: 20px; text-align: center;
-        }
-        .nav-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;
-        }
-        .nav-btn {
-            background: linear-gradient(135deg, var(--orange-primary) 0%, var(--orange-dark) 100%);
-            color: white; border: none; padding: 20px; border-radius: 15px;
-            font-family: 'Fredoka', sans-serif; font-size: 1.1em; cursor: pointer;
-            transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        
+        header {
+            background: linear-gradient(135deg, var(--recycle-green) 0%, var(--blue-sky) 50%, var(--orange-fun) 100%);
+            padding: 3rem 2rem;
             text-align: center;
+            position: relative;
+            box-shadow: 0 12px 50px rgba(0,0,0,0.25);
+            overflow: hidden;
         }
-        .nav-btn:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.25); }
-        .nav-btn.active {
-            background: linear-gradient(135deg, var(--green-success) 0%, #0D9668 100%);
-            box-shadow: 0 6px 15px rgba(16, 185, 129, 0.4);
+        header::before {
+            content: '♻️';
+            position: absolute;
+            font-size: 12rem;
+            opacity: 0.1;
+            top: -30px;
+            left: 3%;
+            animation: spin-recycle 8s linear infinite;
         }
-        .unit { display: none; }
-        .unit.active { display: block; animation: fadeIn 0.5s ease-in; }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+        header::after {
+            content: '🌍';
+            position: absolute;
+            font-size: 12rem;
+            opacity: 0.1;
+            top: -30px;
+            right: 3%;
+            animation: float-tool 4s ease-in-out infinite 2s;
+        }
+        @keyframes spin-recycle {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes float-tool {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-25px) rotate(10deg); }
+        }
+        
+        h1 {
+            font-family: 'Bungee', cursive;
+            font-size: 4.5rem;
+            color: white;
+            text-shadow: 5px 5px 0 var(--dark-text), 10px 10px 0 rgba(0,0,0,0.3);
+            margin-bottom: 1rem;
+            animation: shake 3s ease-in-out infinite;
+            letter-spacing: 3px;
+        }
+        @keyframes shake {
+            0%, 100% { transform: rotate(-0.5deg); }
+            50% { transform: rotate(0.5deg); }
+        }
+        
+        .subtitle {
+            font-family: 'Londrina Solid', cursive;
+            font-size: 2rem;
+            color: white;
+            text-shadow: 3px 3px 0 rgba(0,0,0,0.3);
+            font-weight: 400;
+        }
+        
+        /* Unit Navigation */
+        .unit-nav {
+            background: white;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 1200px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .unit-nav h2 {
+            font-family: 'Bungee', cursive;
+            text-align: center;
+            color: var(--orange-fun);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .unit-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .unit-button {
+            background: linear-gradient(135deg, var(--blue-sky) 0%, var(--purple-grape) 100%);
+            color: white;
+            border: none;
+            padding: 1.5rem;
+            border-radius: 18px;
+            font-family: 'Londrina Solid', cursive;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            font-weight: 900;
+        }
+        .unit-button:hover {
+            transform: translateY(-8px) rotate(-2deg);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+        }
+        .unit-button.active {
+            background: linear-gradient(135deg, var(--orange-fun) 0%, var(--yellow-sun) 100%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        .page {
+            display: none;
+            animation: fadeInUp 0.7s;
+        }
+        .page.active { display: block; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .unit-header {
-            background: linear-gradient(135deg, var(--orange-primary) 0%, var(--orange-dark) 100%);
-            border-radius: 20px; padding: 30px; margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15); position: relative; overflow: hidden;
-        }
-        .unit-header::before {
-            content: ''; position: absolute; top: -50%; right: -10%;
-            width: 300px; height: 300px;
-            background: rgba(255,255,255,0.1); border-radius: 50%;
-        }
-        .unit-header h2 {
-            font-family: 'Fredoka', sans-serif; font-size: 2.5em; color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-            margin-bottom: 10px; position: relative; z-index: 1;
-        }
-        .unit-header .subtitle {
-            font-size: 1.3em; color: white; font-weight: 600;
-            position: relative; z-index: 1;
-        }
-        .audio-btn {
-            background: var(--brown-primary); border: none; color: white;
-            padding: 8px 15px; border-radius: 20px; cursor: pointer;
-            font-family: 'Fredoka', sans-serif; font-size: 0.9em; margin-left: 10px;
-            transition: all 0.3s ease; box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-        }
-        .audio-btn:hover {
-            background: var(--brown-light); transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        .audio-btn.playing { background: var(--green-success); animation: pulse 1s infinite; }
-        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        
         .card {
-            background: white; border-radius: 20px; padding: 30px; margin-bottom: 30px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1); border: 3px solid var(--orange-primary);
+            background: white;
+            border-radius: 35px;
+            padding: 3.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 18px 50px rgba(0,0,0,0.18);
+            border: 7px solid;
+            position: relative;
+            overflow: hidden;
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 80px;
+            height: 80px;
+            background: var(--yellow-sun);
+            border-radius: 50%;
+            opacity: 0.15;
+        }
+        
+        .card h2 {
+            font-family: 'Bungee', cursive;
+            font-size: 3.2rem;
+            margin-bottom: 1.8rem;
+            color: var(--orange-fun);
+            text-shadow: 4px 4px 0 var(--yellow-sun);
+            letter-spacing: 2px;
         }
         .card h3 {
-            font-family: 'Fredoka', sans-serif; font-size: 2em; color: var(--brown-primary);
-            margin-bottom: 20px; display: flex; align-items: center; flex-wrap: wrap;
+            font-family: 'Londrina Solid', cursive;
+            font-size: 2.5rem;
+            margin: 2.5rem 0 1.8rem;
+            color: var(--purple-grape);
+            font-weight: 900;
         }
-        .section { margin-bottom: 25px; }
-        .section h4 {
-            font-family: 'Fredoka', sans-serif; font-size: 1.5em; color: var(--orange-primary);
-            margin-bottom: 15px; display: flex; align-items: center; flex-wrap: wrap;
+        .card p, .card li {
+            font-size: 1.35rem;
+            line-height: 1.9;
+            margin-bottom: 1.2rem;
+            font-weight: 500;
         }
-        .section p, .section li { font-size: 1.2em; line-height: 1.8; color: #333; margin-bottom: 10px; }
-        .section ul { margin-left: 30px; margin-top: 10px; }
-        .example-box {
-            background: linear-gradient(135deg, #FFF4E6 0%, #FFE8CC 100%);
-            border-left: 5px solid var(--orange-primary); padding: 20px;
-            border-radius: 10px; margin: 15px 0;
+        .card ul { margin-left: 2.5rem; }
+        
+        /* Click-to-read audio styles */
+        .clickable-audio {
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s;
+            padding: 0.6rem;
+            border-radius: 12px;
         }
-        .example-box h5 {
-            font-family: 'Fredoka', sans-serif; color: var(--brown-primary);
-            font-size: 1.3em; margin-bottom: 10px;
+        .clickable-audio:hover {
+            background: rgba(155, 89, 182, 0.15);
+            transform: translateX(6px);
         }
-        .activity-container {
+        .clickable-audio::before {
+            content: '🔊';
+            position: absolute;
+            left: -35px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 1.3rem;
+        }
+        .clickable-audio:hover::before {
+            opacity: 0.7;
+        }
+        .clickable-audio.speaking {
+            background: rgba(155, 89, 182, 0.25);
+            animation: pulse-speak 1s infinite;
+        }
+        @keyframes pulse-speak {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        /* Example Cards Grid */
+        .example-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .example-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border: 5px solid;
+            transition: all 0.4s;
+            cursor: pointer;
+        }
+        .example-card:hover {
+            transform: translateY(-15px) rotate(-3deg);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+        }
+        .icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            display: block;
+            animation: bounce-icon 2s ease-in-out infinite;
+        }
+        @keyframes bounce-icon {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        .example-card h4 {
+            font-family: 'Londrina Solid', cursive;
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark-text);
+            font-weight: 900;
+        }
+        .example-card p {
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+        .example-card.clickable-audio::before {
+            left: 10px;
+            top: 10px;
+        }
+        
+        /* Quiz styles */
+        .quiz-container {
+            background: linear-gradient(135deg, #FFF5E1 0%, #FFE4B5 100%);
+            border-radius: 25px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            border: 5px solid var(--yellow-sun);
+        }
+        .question {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 18px;
+            border-left: 6px solid var(--orange-fun);
+        }
+        .question-text {
+            font-family: 'Londrina Solid', cursive;
+            font-size: 1.6rem;
+            color: var(--dark-text);
+            margin-bottom: 1.2rem;
+            font-weight: 900;
+        }
+        .options {
+            display: grid;
+            gap: 1rem;
+        }
+        .option {
+            padding: 1.2rem;
+            background: #F7FAFC;
+            border: 4px solid var(--blue-sky);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        .option:hover {
+            background: var(--blue-sky);
+            color: white;
+            transform: translateX(8px);
+        }
+        .option.selected {
+            background: var(--purple-grape);
+            color: white;
+            border-color: var(--purple-grape);
+        }
+        .option.correct {
+            background: var(--recycle-green);
+            color: white;
+            border-color: var(--recycle-green);
+        }
+        .option.incorrect {
+            background: var(--red-apple);
+            color: white;
+            border-color: var(--red-apple);
+        }
+        .quiz-button {
+            background: linear-gradient(135deg, var(--recycle-green) 0%, var(--blue-sky) 100%);
+            color: white;
+            border: none;
+            padding: 1.5rem 3rem;
+            border-radius: 20px;
+            font-family: 'Londrina Solid', cursive;
+            font-size: 1.8rem;
+            cursor: pointer;
+            margin: 2rem auto;
+            display: block;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            transition: all 0.3s;
+            font-weight: 900;
+        }
+        .quiz-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+        }
+        .quiz-score {
+            text-align: center;
+            font-family: 'Bungee', cursive;
+            font-size: 2rem;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            border-radius: 15px;
+            display: none;
+        }
+        .quiz-score.show { display: block; }
+        
+        /* Drag and Drop */
+        .drag-drop-container {
             background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
-            border-radius: 20px; padding: 30px; margin-top: 20px;
+            border-radius: 25px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            border: 5px solid var(--recycle-green);
         }
-        .activity-title {
-            font-family: 'Fredoka', sans-serif; font-size: 1.8em;
-            color: var(--brown-primary); margin-bottom: 20px; text-align: center;
-        }
-        .drag-instructions {
-            font-size: 1.1em; color: #333; margin-bottom: 20px;
-            text-align: center; padding: 15px;
-            background: white; border-radius: 10px;
-        }
-        .drag-items {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px; margin-bottom: 30px;
+        .drag-items-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
         }
         .drag-item {
-            background: white; border: 3px solid var(--orange-primary);
-            border-radius: 15px; padding: 15px; text-align: center; cursor: move;
-            transition: all 0.3s ease; font-family: 'Fredoka', sans-serif; font-size: 1.1em;
+            background: white;
+            padding: 1.2rem;
+            border-radius: 15px;
+            border: 4px solid var(--orange-fun);
+            text-align: center;
+            cursor: move;
+            font-family: 'Londrina Solid', cursive;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            font-weight: 900;
         }
-        .drag-item:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
-        .drag-item.dragging { opacity: 0.5; transform: rotate(5deg); }
+        .drag-item:hover {
+            transform: rotate(-5deg) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        .drag-item.dragging {
+            opacity: 0.5;
+        }
         .drop-zones {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
         .drop-zone {
-            background: white; border: 3px dashed var(--gray-primary);
-            border-radius: 15px; padding: 20px; min-height: 200px; transition: all 0.3s ease;
+            background: white;
+            border: 4px dashed var(--blue-sky);
+            border-radius: 20px;
+            padding: 2rem;
+            min-height: 180px;
+            transition: all 0.3s;
         }
-        .drop-zone h5 {
-            font-family: 'Fredoka', sans-serif; font-size: 1.3em;
-            color: var(--brown-primary); margin-bottom: 15px; text-align: center;
+        .drop-zone h4 {
+            font-family: 'Londrina Solid', cursive;
+            font-size: 1.8rem;
+            text-align: center;
+            color: var(--dark-text);
+            margin-bottom: 1rem;
+            font-weight: 900;
         }
         .drop-zone.drag-over {
-            background: #FFF9E6; border-color: var(--orange-primary); border-style: solid;
+            background: #FFF9E6;
+            border-color: var(--orange-fun);
+            border-style: solid;
+            transform: scale(1.05);
         }
-        .drop-zone .drag-item { margin-bottom: 10px; }
-        .check-btn {
-            background: var(--green-success); color: white; border: none;
-            padding: 15px 40px; border-radius: 30px;
-            font-family: 'Fredoka', sans-serif; font-size: 1.3em; cursor: pointer;
-            display: block; margin: 20px auto; transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        .drop-zone .drag-item {
+            margin-bottom: 0.8rem;
         }
-        .check-btn:hover {
-            background: #0D9668; transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        .drag-check-button {
+            background: linear-gradient(135deg, var(--orange-fun) 0%, var(--yellow-sun) 100%);
+            color: white;
+            border: none;
+            padding: 1.5rem 3rem;
+            border-radius: 20px;
+            font-family: 'Londrina Solid', cursive;
+            font-size: 1.8rem;
+            cursor: pointer;
+            margin: 2rem auto;
+            display: block;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            transition: all 0.3s;
+            font-weight: 900;
         }
-        .feedback {
-            text-align: center; font-size: 1.3em; font-family: 'Fredoka', sans-serif;
-            margin-top: 20px; padding: 15px; border-radius: 10px; display: none;
+        .drag-check-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.35);
         }
-        .feedback.success {
-            background: #D1FAE5; color: #065F46; border: 2px solid var(--green-success);
+        .drag-feedback {
+            text-align: center;
+            font-family: 'Bungee', cursive;
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            border-radius: 15px;
+            display: none;
         }
-        .feedback.error {
-            background: #FEE2E2; color: #991B1B; border: 2px solid var(--red-error);
-        }
-        .quiz-container { margin-top: 30px; }
-        .question {
-            background: white; border-radius: 15px; padding: 25px; margin-bottom: 20px;
-            border: 3px solid var(--brown-primary);
-        }
-        .question h4 {
-            font-family: 'Fredoka', sans-serif; font-size: 1.4em;
-            color: var(--brown-primary); margin-bottom: 15px;
-        }
-        .options { display: flex; flex-direction: column; gap: 10px; }
-        .option {
-            background: var(--gray-light); border: 2px solid transparent;
-            border-radius: 10px; padding: 15px; cursor: pointer;
-            transition: all 0.3s ease; font-size: 1.1em;
-        }
-        .option:hover { background: #D1D5DB; transform: translateX(5px); }
-        .option.selected { background: #DBEAFE; border-color: #3B82F6; }
-        .option.correct { background: #D1FAE5; border-color: var(--green-success); }
-        .option.incorrect { background: #FEE2E2; border-color: var(--red-error); }
-        .submit-quiz-btn {
-            background: var(--orange-primary); color: white; border: none;
-            padding: 15px 40px; border-radius: 30px;
-            font-family: 'Fredoka', sans-serif; font-size: 1.3em; cursor: pointer;
-            display: block; margin: 30px auto; transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        .submit-quiz-btn:hover {
-            background: var(--orange-dark); transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-        }
-        .quiz-results {
-            text-align: center; font-size: 1.5em; font-family: 'Fredoka', sans-serif;
-            padding: 25px; border-radius: 15px; margin-top: 20px; display: none;
-        }
+        .drag-feedback.show { display: block; }
+        
         @media (max-width: 768px) {
-            .main-header h1 { font-size: 2em; }
-            .nav-grid { grid-template-columns: 1fr 1fr; }
-            .unit-header h2 { font-size: 1.8em; }
-            .drag-items, .drop-zones { grid-template-columns: 1fr; }
+            h1 { font-size: 3rem; }
+            .card h2 { font-size: 2.2rem; }
+            .example-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
+    <div class="bg-floaters">
+        <div class="floater">♻️</div>
+        <div class="floater">🌍</div>
+        <div class="floater">🗑️</div>
+        <div class="floater">🌱</div>
+    </div>
+
+    <header>
+        <h1>Materials & Objects!</h1>
+        <p class="subtitle">Grade 1 Science - Ontario Curriculum</p>
+    </header>
+
+    <div class="unit-nav">
+        <h2>Choose Your Adventure!</h2>
+        <div class="unit-buttons">
+            <button class="unit-button active" onclick="showPage('unit1')">D1.1: Reducing Waste</button>
+            <button class="unit-button" onclick="showPage('unit2')">D1.2: Materials</button>
+            <button class="unit-button" onclick="showPage('unit3')">D2.1: Objects</button>
+            <button class="unit-button" onclick="showPage('unit4')">D2.2: Structures</button>
+            <button class="unit-button" onclick="showPage('unit5')">D2.3: Materials</button>
+            <button class="unit-button" onclick="showPage('unit6')">D2.4: Senses</button>
+            <button class="unit-button" onclick="showPage('unit7')">D2.5: Purposes</button>
+            <button class="unit-button" onclick="showPage('unit8')">D2.6: Properties</button>
+            <button class="unit-button" onclick="showPage('unit9')">D2.7: Fasteners</button>
+            <button class="unit-button" onclick="showPage('unit10')">D2.8: Natural</button>
+        </div>
+    </div>
+
     <div class="container">
-        <div class="main-header">
-            <h1>🏗️ Grade 1 Science</h1>
-            <p class="subtitle">Everyday Materials, Objects, and Structures</p>
-        </div>
-
-        <div class="nav-container">
-            <h2 class="nav-title">Choose a Unit to Explore!</h2>
-            <div class="nav-grid">
-                <button class="nav-btn active" onclick="showUnit('unit1')">D1.1: Reducing Waste</button>
-                <button class="nav-btn" onclick="showUnit('unit2')">D1.2: Materials & Recycling</button>
-                <button class="nav-btn" onclick="showUnit('unit3')">D2.1: What Are Objects?</button>
-                <button class="nav-btn" onclick="showUnit('unit4')">D2.2: Structures & Support</button>
-                <button class="nav-btn" onclick="showUnit('unit5')">D2.3: Materials in Objects</button>
-                <button class="nav-btn" onclick="showUnit('unit6')">D2.4: Observable Features</button>
-                <button class="nav-btn" onclick="showUnit('unit7')">D2.5: Object Purposes</button>
-                <button class="nav-btn" onclick="showUnit('unit8')">D2.6: Material Properties</button>
-                <button class="nav-btn" onclick="showUnit('unit9')">D2.7: Types of Fasteners</button>
-                <button class="nav-btn" onclick="showUnit('unit10')">D2.8: Natural Materials</button>
-            </div>
-        </div>
-
-        <!-- UNIT 1: D1.1 -->
-        <div id="unit1" class="unit active">
-            <div class="unit-header">
-                <h2>🏗️ Unit D1.1: Reducing Waste</h2>
-                <p class="subtitle">Let's Learn How to Make Less Garbage!</p>
-            </div>
-
-            <div class="card">
-                <h3>What is Waste? <button class="audio-btn" onclick="speakText(this, 'What is Waste?')">🔊</button></h3>
+        <!-- UNIT 1: D1.1 - Reducing Waste -->
+        <div id="unit1" class="page active">
+            <div class="card" style="border-color: var(--recycle-green);">
+                <h2 class="clickable-audio">♻️ Reducing Waste</h2>
                 
-                <div class="section">
-                    <p><button class="audio-btn" onclick="speakText(this, 'Waste is stuff we throw away.')">🔊</button>
-                    Waste is stuff we throw away. When we use things and put them in the garbage, that makes waste. Humans make a lot of waste every day!</p>
-                </div>
-
-                <div class="section">
-                    <h4>Types of Waste</h4>
-                    <div class="example-box">
-                        <h5>🍎 Food Waste</h5>
-                        <p>Leftover food, fruit peels, and food we don't eat</p>
+                <h3>What is Waste?</h3>
+                <p class="clickable-audio">Waste is stuff we throw away! Every day, people make lots of garbage. But we can help Earth by making less waste!</p>
+                
+                <div class="example-grid">
+                    <div class="example-card clickable-audio" style="border-color: var(--orange-fun);">
+                        <div class="icon">🍎</div>
+                        <h4>Food Waste</h4>
+                        <p>Leftovers and peels!</p>
                     </div>
-                    <div class="example-box">
-                        <h5>📄 Paper Waste</h5>
-                        <p>Old worksheets, newspapers, and cardboard boxes</p>
+                    <div class="example-card clickable-audio" style="border-color: var(--blue-sky);">
+                        <div class="icon">📄</div>
+                        <h4>Paper Waste</h4>
+                        <p>Old papers and boxes!</p>
                     </div>
-                    <div class="example-box">
-                        <h5>🥤 Plastic Waste</h5>
-                        <p>Bottles, bags, straws, and plastic wrappers</p>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <h4>How Can We Reduce Waste?</h4>
-                    <div class="example-box">
-                        <h5>♻️ Reduce: Use Less</h5>
-                        <p>Use both sides of paper • Turn off lights • Take only what you'll eat</p>
-                    </div>
-                    <div class="example-box">
-                        <h5>🔄 Reuse: Use Again</h5>
-                        <p>Use lunch containers • Donate old toys • Use old boxes for art</p>
-                    </div>
-                    <div class="example-box">
-                        <h5>♻️ Recycle: Make Into Something New</h5>
-                        <p>Put paper in the blue bin • Recycle bottles and cans</p>
+                    <div class="example-card clickable-audio" style="border-color: var(--yellow-sun);">
+                        <div class="icon">🥤</div>
+                        <h4>Plastic Waste</h4>
+                        <p>Bottles and bags!</p>
                     </div>
                 </div>
-            </div>
 
-            <div class="card">
-                <h3>🎯 Activity: Sort the Waste!</h3>
-                <div class="activity-container">
-                    <h4 class="activity-title">Drag each item to the correct bin!</h4>
-                    <p class="drag-instructions">Match items to their proper bin.</p>
+                <h3>The 3 Rs!</h3>
+                <p class="clickable-audio">We can help by using the 3 Rs: Reduce, Reuse, and Recycle!</p>
+                
+                <div class="example-grid">
+                    <div class="example-card clickable-audio" style="border-color: var(--recycle-green);">
+                        <div class="icon">➖</div>
+                        <h4>Reduce</h4>
+                        <p>Use less stuff!</p>
+                    </div>
+                    <div class="example-card clickable-audio" style="border-color: var(--purple-grape);">
+                        <div class="icon">🔄</div>
+                        <h4>Reuse</h4>
+                        <p>Use things again!</p>
+                    </div>
+                    <div class="example-card clickable-audio" style="border-color: var(--orange-fun);">
+                        <div class="icon">♻️</div>
+                        <h4>Recycle</h4>
+                        <p>Make new from old!</p>
+                    </div>
+                </div>
 
-                    <div class="drag-items" id="unit1-items">
+                <h3>How We Help!</h3>
+                <div class="example-grid">
+                    <div class="example-card clickable-audio" style="border-color: var(--blue-sky);">
+                        <div class="icon">📝</div>
+                        <h4>Use Both Sides</h4>
+                        <p>Draw on both sides of paper!</p>
+                    </div>
+                    <div class="example-card clickable-audio" style="border-color: var(--yellow-sun);">
+                        <div class="icon">🎒</div>
+                        <h4>Reusable Bags</h4>
+                        <p>Use lunch containers!</p>
+                    </div>
+                    <div class="example-card clickable-audio" style="border-color: var(--recycle-green);">
+                        <div class="icon">🎁</div>
+                        <h4>Share Toys</h4>
+                        <p>Give old toys to friends!</p>
+                    </div>
+                    <div class="example-card clickable-audio" style="border-color: var(--red-apple);">
+                        <div class="icon">💡</div>
+                        <h4>Turn Off Lights</h4>
+                        <p>Save energy!</p>
+                    </div>
+                </div>
+
+                <!-- Quiz -->
+                <div class="quiz-container">
+                    <h3 class="clickable-audio">🎯 Quiz Time!</h3>
+                    
+                    <div class="question" data-answer="1">
+                        <div class="question-text clickable-audio">1. What does "reduce" mean?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Make more garbage</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Use less stuff</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Throw things away</div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-answer="1">
+                        <div class="question-text clickable-audio">2. Which is food waste?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">A plastic bottle</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">An apple peel</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">A metal can</div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-answer="2">
+                        <div class="question-text clickable-audio">3. What should we do with old toys?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Throw them in garbage</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Hide them</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Give them to friends</div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-answer="0">
+                        <div class="question-text clickable-audio">4. What does the recycling symbol look like?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">♻️ Three arrows in a circle</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">A garbage can</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">A happy face</div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-answer="1">
+                        <div class="question-text clickable-audio">5. How can we save paper?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Use more paper</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Use both sides</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Never write</div>
+                        </div>
+                    </div>
+
+                    <button class="quiz-button" onclick="checkQuiz()">✓ Check My Answers!</button>
+                    <div class="quiz-score" id="quiz-score"></div>
+                </div>
+
+                <!-- Drag and Drop -->
+                <div class="drag-drop-container">
+                    <h3 class="clickable-audio">🎮 Sort the Waste!</h3>
+                    <p class="clickable-audio">Drag each item to the right bin!</p>
+                    
+                    <div class="drag-items-container" id="drag-items">
                         <div class="drag-item" draggable="true" data-category="recycle">📦 Cardboard</div>
                         <div class="drag-item" draggable="true" data-category="garbage">🍬 Wrapper</div>
-                        <div class="drag-item" draggable="true" data-category="compost">🍌 Banana Peel</div>
+                        <div class="drag-item" draggable="true" data-category="compost">🍌 Banana</div>
                         <div class="drag-item" draggable="true" data-category="recycle">📰 Newspaper</div>
                         <div class="drag-item" draggable="true" data-category="garbage">🎈 Balloon</div>
-                        <div class="drag-item" draggable="true" data-category="compost">🍎 Apple Core</div>
+                        <div class="drag-item" draggable="true" data-category="compost">🥕 Carrot</div>
                     </div>
-
+                    
                     <div class="drop-zones">
-                        <div class="drop-zone" data-zone="garbage"><h5>🗑️ Garbage</h5></div>
-                        <div class="drop-zone" data-zone="recycle"><h5>♻️ Recycling</h5></div>
-                        <div class="drop-zone" data-zone="compost"><h5>🌱 Compost</h5></div>
+                        <div class="drop-zone" data-zone="garbage">
+                            <h4>🗑️ Garbage</h4>
+                        </div>
+                        <div class="drop-zone" data-zone="recycle">
+                            <h4>♻️ Recycling</h4>
+                        </div>
+                        <div class="drop-zone" data-zone="compost">
+                            <h4>🌱 Compost</h4>
+                        </div>
                     </div>
 
-                    <button class="check-btn" onclick="checkActivity('unit1')">Check Answers!</button>
-                    <div class="feedback" id="unit1-feedback"></div>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>📝 Quiz Time!</h3>
-                <div class="quiz-container" id="unit1-quiz">
-                    <div class="question" data-answer="1">
-                        <h4>1. What is waste?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit1')">A) Something we keep forever</div>
-                            <div class="option" onclick="selectOption(this, 'unit1')">B) Stuff we throw away</div>
-                            <div class="option" onclick="selectOption(this, 'unit1')">C) Only food</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="1">
-                        <h4>2. Which is food waste?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit1')">A) A plastic bottle</div>
-                            <div class="option" onclick="selectOption(this, 'unit1')">B) An orange peel</div>
-                            <div class="option" onclick="selectOption(this, 'unit1')">C) An old toy</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="0">
-                        <h4>3. Why reduce waste?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit1')">A) To help keep Earth clean</div>
-                            <div class="option" onclick="selectOption(this, 'unit1')">B) Waste looks pretty</div>
-                            <div class="option" onclick="selectOption(this, 'unit1')">C) We shouldn't</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="1">
-                        <h4>4. What does "reuse" mean?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit1')">A) Throw away</div>
-                            <div class="option" onclick="selectOption(this, 'unit1')">B) Use again</div>
-                            <div class="option" onclick="selectOption(this, 'unit1')">C) Buy new</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="2">
-                        <h4>5. Which reduces waste?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit1')">A) New paper every time</div>
-                            <div class="option" onclick="selectOption(this, 'unit1')">B) Throwing away toys</div>
-                            <div class="option" onclick="selectOption(this, 'unit1')">C) Using both sides of paper</div>
-                        </div>
-                    </div>
-                    <button class="submit-quiz-btn" onclick="submitQuiz('unit1')">Submit Quiz</button>
-                    <div class="quiz-results" id="unit1-results"></div>
+                    <button class="drag-check-button" onclick="checkDragDrop()">✓ Check My Sorting!</button>
+                    <div class="drag-feedback" id="drag-feedback"></div>
                 </div>
             </div>
         </div>
 
-        <!-- UNIT 2: D1.2 -->
-        <div id="unit2" class="unit">
-            <div class="unit-header">
-                <h2>♻️ Unit D1.2: Materials & Recycling</h2>
-                <p class="subtitle">What Happens to Old Objects?</p>
-            </div>
-
-            <div class="card">
-                <h3>Objects Made From Materials</h3>
+        <!-- UNIT 2: D1.2 - Materials & Recycling -->
+        <div id="unit2" class="page">
+            <div class="card" style="border-color: var(--blue-sky);">
+                <h2 class="clickable-audio">🔄 Materials & Recycling</h2>
                 
-                <div class="section">
-                    <p>Every object is made from materials. Different objects can be made from the same materials but serve different purposes!</p>
-                </div>
-
-                <div class="section">
-                    <h4>Where Do Materials Come From?</h4>
-                    <p>
-                        • <strong>Wood:</strong> Comes from trees 🌲<br>
-                        • <strong>Metal:</strong> Comes from rocks in the ground ⛰️<br>
-                        • <strong>Plastic:</strong> Comes from oil underground 🛢️<br>
-                        • <strong>Glass:</strong> Comes from sand 🏖️<br>
-                        • <strong>Cotton:</strong> Comes from cotton plants 🌿
-                    </p>
-                </div>
-
-                <div class="section">
-                    <h4>What Happens When Objects Get Old?</h4>
-                    <div class="example-box">
-                        <h5>♻️ Recycle It</h5>
-                        <p>Paper, plastic, metal cans → Melted or broken down → Made into NEW objects!</p>
+                <h3>Where Do Materials Come From?</h3>
+                <p class="clickable-audio">Everything is made from materials! They come from nature!</p>
+                
+                <div class="example-grid">
+                    <div class="example-card clickable-audio" style="border-color: var(--recycle-green);">
+                        <div class="icon">🌲</div>
+                        <h4>Wood</h4>
+                        <p>From trees!</p>
                     </div>
-                    <div class="example-box">
-                        <h5>🎁 Donate or Reuse It</h5>
-                        <p>Old clothes, toys, furniture → Given to others → They get more use!</p>
+                    <div class="example-card clickable-audio" style="border-color: var(--orange-fun);">
+                        <div class="icon">⛰️</div>
+                        <h4>Metal</h4>
+                        <p>From rocks!</p>
                     </div>
-                    <div class="example-box">
-                        <h5>🌱 Compost It</h5>
-                        <p>Food scraps, leaves → Break down in soil → Become dirt for plants!</p>
+                    <div class="example-card clickable-audio" style="border-color: var(--blue-sky);">
+                        <div class="icon">🛢️</div>
+                        <h4>Plastic</h4>
+                        <p>From oil!</p>
+                    </div>
+                    <div class="example-card clickable-audio" style="border-color: var(--yellow-sun);">
+                        <div class="icon">🏖️</div>
+                        <h4>Glass</h4>
+                        <p>From sand!</p>
                     </div>
                 </div>
-            </div>
 
-            <div class="card">
-                <h3>🎯 Activity: Match the Material!</h3>
-                <div class="activity-container">
-                    <h4 class="activity-title">Drag objects to their material source!</h4>
-                    <p class="drag-instructions">Match objects to where materials come from.</p>
+                <h3>What Happens to Old Things?</h3>
+                <div class="example-grid">
+                    <div class="example-card clickable-audio" style="border-color: var(--recycle-green);">
+                        <div class="icon">♻️</div>
+                        <h4>Recycle It!</h4>
+                        <p>Make something new!</p>
+                    </div>
+                    <div class="example-card clickable-audio" style="border-color: var(--purple-grape);">
+                        <div class="icon">🎁</div>
+                        <h4>Donate It!</h4>
+                        <p>Give to someone else!</p>
+                    </div>
+                    <div class="example-card clickable-audio" style="border-color: var(--orange-fun);">
+                        <div class="icon">🌱</div>
+                        <h4>Compost It!</h4>
+                        <p>Turns into dirt!</p>
+                    </div>
+                </div>
 
-                    <div class="drag-items" id="unit2-items">
-                        <div class="drag-item" draggable="true" data-category="trees">🪑 Wooden Chair</div>
+                <h3>What Can We Recycle?</h3>
+                <div class="example-grid">
+                    <div class="example-card clickable-audio" style="border-color: var(--blue-sky);">
+                        <div class="icon">📦</div>
+                        <h4>Cardboard</h4>
+                        <p>Boxes and tubes!</p>
+                    </div>
+                    <div class="example-card clickable-audio" style="border-color: var(--yellow-sun);">
+                        <div class="icon">🥫</div>
+                        <h4>Cans</h4>
+                        <p>Metal containers!</p>
+                    </div>
+                    <div class="example-card clickable-audio" style="border-color: var(--recycle-green);">
+                        <div class="icon">🍾</div>
+                        <h4>Bottles</h4>
+                        <p>Plastic and glass!</p>
+                    </div>
+                    <div class="example-card clickable-audio" style="border-color: var(--orange-fun);">
+                        <div class="icon">📰</div>
+                        <h4>Paper</h4>
+                        <p>Newspapers and more!</p>
+                    </div>
+                </div>
+
+                <!-- Quiz -->
+                <div class="quiz-container">
+                    <h3 class="clickable-audio">🎯 Quiz Time!</h3>
+                    
+                    <div class="question" data-answer="1">
+                        <div class="question-text clickable-audio">1. Where does wood come from?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Sand</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Trees</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Oil</div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-answer="2">
+                        <div class="question-text clickable-audio">2. What happens when we recycle?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">It goes to garbage</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">It disappears</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">It makes something new</div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-answer="0">
+                        <div class="question-text clickable-audio">3. Glass is made from what?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Sand</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Trees</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Rocks</div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-answer="1">
+                        <div class="question-text clickable-audio">4. What should we do with old toys?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Throw them away</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Donate them</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Hide them</div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-answer="2">
+                        <div class="question-text clickable-audio">5. Food scraps can become what?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Plastic</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Metal</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Dirt (compost)</div>
+                        </div>
+                    </div>
+
+                    <button class="quiz-button" onclick="checkQuiz()">✓ Check My Answers!</button>
+                    <div class="quiz-score" id="quiz-score"></div>
+                </div>
+
+                <!-- Drag and Drop -->
+                <div class="drag-drop-container">
+                    <h3 class="clickable-audio">🎮 Match Materials to Sources!</h3>
+                    <p class="clickable-audio">Drag each material to where it comes from!</p>
+                    
+                    <div class="drag-items-container" id="drag-items">
+                        <div class="drag-item" draggable="true" data-category="trees">🪑 Wood Chair</div>
                         <div class="drag-item" draggable="true" data-category="sand">🪟 Glass Window</div>
                         <div class="drag-item" draggable="true" data-category="oil">🥤 Plastic Bottle</div>
-                        <div class="drag-item" draggable="true" data-category="ground">🔧 Metal Tool</div>
+                        <div class="drag-item" draggable="true" data-category="rocks">🔧 Metal Tool</div>
                         <div class="drag-item" draggable="true" data-category="trees">📄 Paper</div>
-                        <div class="drag-item" draggable="true" data-category="ground">🥫 Aluminum Can</div>
+                        <div class="drag-item" draggable="true" data-category="rocks">🥫 Aluminum Can</div>
                     </div>
-
+                    
                     <div class="drop-zones">
-                        <div class="drop-zone" data-zone="trees"><h5>🌲 From Trees</h5></div>
-                        <div class="drop-zone" data-zone="sand"><h5>🏖️ From Sand</h5></div>
-                        <div class="drop-zone" data-zone="oil"><h5>🛢️ From Oil</h5></div>
-                        <div class="drop-zone" data-zone="ground"><h5>⛰️ From Ground</h5></div>
+                        <div class="drop-zone" data-zone="trees">
+                            <h4>🌲 From Trees</h4>
+                        </div>
+                        <div class="drop-zone" data-zone="sand">
+                            <h4>🏖️ From Sand</h4>
+                        </div>
+                        <div class="drop-zone" data-zone="oil">
+                            <h4>🛢️ From Oil</h4>
+                        </div>
+                        <div class="drop-zone" data-zone="rocks">
+                            <h4>⛰️ From Rocks</h4>
+                        </div>
                     </div>
 
-                    <button class="check-btn" onclick="checkActivity('unit2')">Check Answers!</button>
-                    <div class="feedback" id="unit2-feedback"></div>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>📝 Quiz Time!</h3>
-                <div class="quiz-container" id="unit2-quiz">
-                    <div class="question" data-answer="1">
-                        <h4>1. Where does wood come from?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit2')">A) Sand</div>
-                            <div class="option" onclick="selectOption(this, 'unit2')">B) Trees</div>
-                            <div class="option" onclick="selectOption(this, 'unit2')">C) Oil</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="2">
-                        <h4>2. What happens when we recycle paper?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit2')">A) Goes in garbage</div>
-                            <div class="option" onclick="selectOption(this, 'unit2')">B) Stays the same</div>
-                            <div class="option" onclick="selectOption(this, 'unit2')">C) Made into new paper</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="0">
-                        <h4>3. Which material comes from sand?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit2')">A) Glass</div>
-                            <div class="option" onclick="selectOption(this, 'unit2')">B) Plastic</div>
-                            <div class="option" onclick="selectOption(this, 'unit2')">C) Wood</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="1">
-                        <h4>4. What should you do with old toys?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit2')">A) Throw in garbage</div>
-                            <div class="option" onclick="selectOption(this, 'unit2')">B) Donate to others</div>
-                            <div class="option" onclick="selectOption(this, 'unit2')">C) Hide them</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="2">
-                        <h4>5. Food scraps become:</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit2')">A) Plastic</div>
-                            <div class="option" onclick="selectOption(this, 'unit2')">B) Metal</div>
-                            <div class="option" onclick="selectOption(this, 'unit2')">C) Soil (compost)</div>
-                        </div>
-                    </div>
-                    <button class="submit-quiz-btn" onclick="submitQuiz('unit2')">Submit Quiz</button>
-                    <div class="quiz-results" id="unit2-results"></div>
+                    <button class="drag-check-button" onclick="checkDragDrop()">✓ Check My Answers!</button>
+                    <div class="drag-feedback" id="drag-feedback"></div>
                 </div>
             </div>
         </div>
-
-
-        <!-- UNIT 3: D2.1 -->
-        <div id="unit3" class="unit">
-            <div class="unit-header">
-                <h2>🎨 Unit D2.1: What Are Objects?</h2>
-                <p class="subtitle">Things Made From Materials</p>
-            </div>
-
-            <div class="card">
-                <h3>What is an Object?</h3>
-                <div class="section">
-                    <p>An object is a thing we can see and touch. Objects are made of <strong>one or more materials</strong>. Some objects use just one material, others use many!</p>
-                </div>
-
-                <div class="section">
-                    <h4>Objects Made From ONE Material</h4>
-                    <div class="example-box">
-                        <h5>🪵 Wooden Spoon</h5>
-                        <p>Made from: <strong>WOOD</strong> only</p>
+        <!-- UNIT 3: D2.1 - What Are Objects? -->
+        <div id="unit3" class="page">
+            <div class="card" style="border-color: var(--purple-grape);">
+                <h2 class="clickable-audio">🎨 What Are Objects?</h2>
+                
+                <h3>Objects Are Made From Materials!</h3>
+                <p class="clickable-audio">An object is a thing you can see and touch! Some use one material, some use many!</p>
+                
+                <h3>One Material Objects</h3>
+                <div class="example-grid">
+                    <div class="example-card clickable-audio" style="border-color: var(--orange-fun);">
+                        <div class="icon">
+                            <svg viewBox="0 0 100 50" width="100" height="50" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="5" y="8" width="90" height="34" rx="6" ry="6" fill="#F4A7B9" stroke="#C0617A" stroke-width="2"/>
+                                <rect x="5" y="8" width="30" height="34" rx="6" ry="6" fill="#E07090" stroke="#C0617A" stroke-width="2"/>
+                                <text x="38" y="31" font-family="Arial" font-size="10" fill="#C0617A" font-style="italic">eraser</text>
+                            </svg>
+                        </div>
+                        <h4>Eraser</h4>
+                        <p>Just rubber!</p>
                     </div>
-                    <div class="example-box">
-                        <h5>🧊 Ice Cube</h5>
-                        <p>Made from: <strong>WATER</strong> only (frozen)</p>
+                    <div class="example-card clickable-audio" style="border-color: var(--blue-sky);">
+                        <div class="icon">🧊</div>
+                        <h4>Ice Cube</h4>
+                        <p>Just water!</p>
                     </div>
-                    <div class="example-box">
-                        <h5>🔧 Metal Spoon</h5>
-                        <p>Made from: <strong>METAL</strong> only</p>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <h4>Objects Made From MANY Materials</h4>
-                    <div class="example-box">
-                        <h5>✏️ Pencil</h5>
-                        <p>Made from: <strong>WOOD</strong> + <strong>GRAPHITE</strong> + <strong>RUBBER</strong> + <strong>METAL</strong></p>
-                    </div>
-                    <div class="example-box">
-                        <h5>👟 Running Shoe</h5>
-                        <p>Made from: <strong>FABRIC</strong> + <strong>RUBBER</strong> + <strong>PLASTIC</strong> + <strong>FOAM</strong></p>
-                    </div>
-                    <div class="example-box">
-                        <h5>🚪 Door</h5>
-                        <p>Made from: <strong>WOOD</strong> + <strong>METAL</strong> (handle/hinges) + <strong>GLASS</strong> (window)</p>
+                    <div class="example-card clickable-audio" style="border-color: var(--recycle-green);">
+                        <div class="icon">🥄</div>
+                        <h4>Metal Spoon</h4>
+                        <p>Just metal!</p>
                     </div>
                 </div>
-            </div>
 
-            <div class="card">
-                <h3>🎯 Activity: One or Many Materials?</h3>
-                <div class="activity-container">
-                    <h4 class="activity-title">Sort by number of materials!</h4>
-                    <p class="drag-instructions">Drag to "One Material" or "Many Materials"</p>
+                <h3>Many Materials Objects</h3>
+                <div class="example-grid">
+                    <div class="example-card clickable-audio" style="border-color: var(--yellow-sun);">
+                        <div class="icon">✏️</div>
+                        <h4>Pencil</h4>
+                        <p>Wood + graphite + rubber + metal!</p>
+                    </div>
+                    <div class="example-card clickable-audio" style="border-color: var(--purple-grape);">
+                        <div class="icon">👟</div>
+                        <h4>Shoe</h4>
+                        <p>Fabric + rubber + plastic + foam!</p>
+                    </div>
+                    <div class="example-card clickable-audio" style="border-color: var(--red-apple);">
+                        <div class="icon">🚪</div>
+                        <h4>Door</h4>
+                        <p>Wood + metal + glass!</p>
+                    </div>
+                </div>
 
-                    <div class="drag-items" id="unit3-items">
+                <!-- Quiz -->
+                <div class="quiz-container">
+                    <h3 class="clickable-audio">🎯 Quiz Time!</h3>
+                    
+                    <div class="question" data-answer="1">
+                        <div class="question-text clickable-audio">1. What is an object?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Only wood things</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Things made of materials</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Only toys</div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-answer="0">
+                        <div class="question-text clickable-audio">2. An eraser has how many materials?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">One</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Many</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">None</div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-answer="1">
+                        <div class="question-text clickable-audio">3. A pencil is made from what?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Only wood</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Wood, graphite, rubber, metal</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Only metal</div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-answer="2">
+                        <div class="question-text clickable-audio">4. Why use different materials?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">To look pretty</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">We ran out</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Each is good at different things</div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-answer="0">
+                        <div class="question-text clickable-audio">5. Which has one material?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Metal spoon</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Shoe</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Door</div>
+                        </div>
+                    </div>
+
+                    <button class="quiz-button" onclick="checkQuiz()">✓ Check My Answers!</button>
+                    <div class="quiz-score" id="quiz-score"></div>
+                </div>
+
+                <!-- Drag and Drop -->
+                <div class="drag-drop-container">
+                    <h3 class="clickable-audio">🎮 Sort: One or Many Materials?</h3>
+                    <p class="clickable-audio">Drag each object to the right group!</p>
+                    
+                    <div class="drag-items-container" id="drag-items">
                         <div class="drag-item" draggable="true" data-category="one">🧊 Ice Cube</div>
                         <div class="drag-item" draggable="true" data-category="many">✏️ Pencil</div>
-                        <div class="drag-item" draggable="true" data-category="one">🪵 Wooden Stick</div>
+                        <div class="drag-item" draggable="true" data-category="one">🪵 Stick</div>
                         <div class="drag-item" draggable="true" data-category="many">👟 Shoe</div>
                         <div class="drag-item" draggable="true" data-category="one">📄 Paper</div>
                         <div class="drag-item" draggable="true" data-category="many">🚪 Door</div>
                     </div>
-
+                    
                     <div class="drop-zones">
-                        <div class="drop-zone" data-zone="one"><h5>1️⃣ One Material</h5></div>
-                        <div class="drop-zone" data-zone="many"><h5>🔢 Many Materials</h5></div>
+                        <div class="drop-zone" data-zone="one">
+                            <h4>1️⃣ One Material</h4>
+                        </div>
+                        <div class="drop-zone" data-zone="many">
+                            <h4>🔢 Many Materials</h4>
+                        </div>
                     </div>
 
-                    <button class="check-btn" onclick="checkActivity('unit3')">Check Answers!</button>
-                    <div class="feedback" id="unit3-feedback"></div>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>📝 Quiz Time!</h3>
-                <div class="quiz-container" id="unit3-quiz">
-                    <div class="question" data-answer="1">
-                        <h4>1. What is an object?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit3')">A) Only wood things</div>
-                            <div class="option" onclick="selectOption(this, 'unit3')">B) Things made of materials</div>
-                            <div class="option" onclick="selectOption(this, 'unit3')">C) Only living things</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="0">
-                        <h4>2. A wooden spoon is made from:</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit3')">A) One material</div>
-                            <div class="option" onclick="selectOption(this, 'unit3')">B) Many materials</div>
-                            <div class="option" onclick="selectOption(this, 'unit3')">C) No materials</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="1">
-                        <h4>3. A pencil is made from:</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit3')">A) Only wood</div>
-                            <div class="option" onclick="selectOption(this, 'unit3')">B) Wood, graphite, rubber, and metal</div>
-                            <div class="option" onclick="selectOption(this, 'unit3')">C) Only graphite</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="2">
-                        <h4>4. Why use different materials?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit3')">A) To look pretty</div>
-                            <div class="option" onclick="selectOption(this, 'unit3')">B) We ran out</div>
-                            <div class="option" onclick="selectOption(this, 'unit3')">C) Each is good at different things</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="0">
-                        <h4>5. Which is one material?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit3')">A) A metal spoon</div>
-                            <div class="option" onclick="selectOption(this, 'unit3')">B) A shoe</div>
-                            <div class="option" onclick="selectOption(this, 'unit3')">C) A door</div>
-                        </div>
-                    </div>
-                    <button class="submit-quiz-btn" onclick="submitQuiz('unit3')">Submit Quiz</button>
-                    <div class="quiz-results" id="unit3-results"></div>
+                    <button class="drag-check-button" onclick="checkDragDrop()">✓ Check My Answers!</button>
+                    <div class="drag-feedback" id="drag-feedback"></div>
                 </div>
             </div>
         </div>
-
-        <!-- UNIT 4: D2.2 -->
-        <div id="unit4" class="unit">
-            <div class="unit-header">
-                <h2>🏗️ Unit D2.2: Structures & Support</h2>
-                <p class="subtitle">Objects That Hold Things Up!</p>
-            </div>
-
-            <div class="card">
+        <!-- UNIT 4: D2.2 - Structures & Support -->
+        <div id="unit4" class="page">
+            <div class="card" style="border-color: var(--orange-fun);">
+                <h2 class="clickable-audio">🏗️ Structures & Support</h2>
+                
                 <h3>What is a Structure?</h3>
-                <div class="section">
-                    <p>A <strong>structure</strong> is an object designed to <strong>support a load</strong>. A load is anything that needs to be held up. Structures help hold things so they don't fall down!</p>
-                </div>
-
-                <div class="section">
-                    <h4>Examples of Structures</h4>
-                    <div class="example-box">
-                        <h5>🏠 House</h5>
-                        <p><strong>Supports:</strong> Roof, walls, everything inside<br>
-                        <strong>How:</strong> Strong walls and beams hold up the roof</p>
+                <p class="clickable-audio">A structure holds things up! It supports a load so things don't fall down!</p>
+                
+                <div class="example-grid">
+                    <div class="example-card clickable-audio" style="border-color: var(--blue-sky);">
+                        <div class="icon">🏠</div>
+                        <h4>House</h4>
+                        <p>Holds up the roof!</p>
                     </div>
-                    <div class="example-box">
-                        <h5>🌉 Bridge</h5>
-                        <p><strong>Supports:</strong> Cars and people crossing<br>
-                        <strong>How:</strong> Strong beams and cables hold the road</p>
+                    <div class="example-card clickable-audio" style="border-color: var(--recycle-green);">
+                        <div class="icon">🌉</div>
+                        <h4>Bridge</h4>
+                        <p>Holds up cars!</p>
                     </div>
-                    <div class="example-box">
-                        <h5>🪑 Chair</h5>
-                        <p><strong>Supports:</strong> People sitting<br>
-                        <strong>How:</strong> Four legs hold up the seat</p>
+                    <div class="example-card clickable-audio" style="border-color: var(--yellow-sun);">
+                        <div class="icon">🪑</div>
+                        <h4>Chair</h4>
+                        <p>Holds up people!</p>
                     </div>
-                    <div class="example-box">
-                        <h5>📚 Bookshelf</h5>
-                        <p><strong>Supports:</strong> Books and objects<br>
-                        <strong>How:</strong> Strong shelves held by the frame</p>
+                    <div class="example-card clickable-audio" style="border-color: var(--purple-grape);">
+                        <div class="icon">📚</div>
+                        <h4>Bookshelf</h4>
+                        <p>Holds up books!</p>
                     </div>
                 </div>
 
-                <div class="section">
-                    <h4>Parts of a Structure</h4>
-                    <ul>
-                        <li><strong>Foundation:</strong> Bottom part on the ground 🏗️</li>
-                        <li><strong>Frame:</strong> Skeleton that gives it shape 🦴</li>
-                        <li><strong>Supports:</strong> Parts that hold things up 🪵</li>
-                        <li><strong>Covering:</strong> Outside part like walls 🧱</li>
-                    </ul>
+                <h3>Parts of a Structure</h3>
+                <div class="example-grid">
+                    <div class="example-card clickable-audio" style="border-color: var(--orange-fun);">
+                        <div class="icon">🏗️</div>
+                        <h4>Foundation</h4>
+                        <p>Bottom part on ground!</p>
+                    </div>
+                    <div class="example-card clickable-audio" style="border-color: var(--red-apple);">
+                        <div class="icon">🦴</div>
+                        <h4>Frame</h4>
+                        <p>Skeleton of the structure!</p>
+                    </div>
+                    <div class="example-card clickable-audio" style="border-color: var(--blue-sky);">
+                        <div class="icon">🪵</div>
+                        <h4>Supports</h4>
+                        <p>Parts that hold up!</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="card">
-                <h3>🎯 Activity: Structure or Not?</h3>
-                <div class="activity-container">
-                    <h4 class="activity-title">Which objects are structures?</h4>
-                    <p class="drag-instructions">Drag to "Structure" or "Not a Structure"</p>
+                <!-- Quiz -->
+                <div class="quiz-container">
+                    <h3 class="clickable-audio">🎯 Quiz Time!</h3>
+                    
+                    <div class="question" data-answer="1">
+                        <div class="question-text clickable-audio">1. What is a structure?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Any object</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Something that supports a load</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Only buildings</div>
+                        </div>
+                    </div>
 
-                    <div class="drag-items" id="unit4-items">
+                    <div class="question" data-answer="2">
+                        <div class="question-text clickable-audio">2. What does a bridge hold up?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Nothing</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Only water</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Cars and people</div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-answer="0">
+                        <div class="question-text clickable-audio">3. What part sits on the ground?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Foundation</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Roof</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Window</div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-answer="1">
+                        <div class="question-text clickable-audio">4. What makes a structure strong?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Weak materials</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Strong materials</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Colorful paint</div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-answer="0">
+                        <div class="question-text clickable-audio">5. Which is a structure?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Bookshelf</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Water</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Apple</div>
+                        </div>
+                    </div>
+
+                    <button class="quiz-button" onclick="checkQuiz()">✓ Check My Answers!</button>
+                    <div class="quiz-score" id="quiz-score"></div>
+                </div>
+
+                <!-- Drag and Drop -->
+                <div class="drag-drop-container">
+                    <h3 class="clickable-audio">🎮 Structure or Not?</h3>
+                    <p class="clickable-audio">Drag each item to the right group!</p>
+                    
+                    <div class="drag-items-container" id="drag-items">
                         <div class="drag-item" draggable="true" data-category="structure">🏠 House</div>
                         <div class="drag-item" draggable="true" data-category="not">🍎 Apple</div>
                         <div class="drag-item" draggable="true" data-category="structure">🪑 Chair</div>
@@ -673,367 +1066,358 @@
                         <div class="drag-item" draggable="true" data-category="structure">🌉 Bridge</div>
                         <div class="drag-item" draggable="true" data-category="structure">📚 Bookshelf</div>
                     </div>
-
+                    
                     <div class="drop-zones">
-                        <div class="drop-zone" data-zone="structure"><h5>🏗️ Structure</h5></div>
-                        <div class="drop-zone" data-zone="not"><h5>❌ Not a Structure</h5></div>
+                        <div class="drop-zone" data-zone="structure">
+                            <h4>🏗️ Structure</h4>
+                        </div>
+                        <div class="drop-zone" data-zone="not">
+                            <h4>❌ Not Structure</h4>
+                        </div>
                     </div>
 
-                    <button class="check-btn" onclick="checkActivity('unit4')">Check Answers!</button>
-                    <div class="feedback" id="unit4-feedback"></div>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>📝 Quiz Time!</h3>
-                <div class="quiz-container" id="unit4-quiz">
-                    <div class="question" data-answer="1">
-                        <h4>1. What is a structure?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit4')">A) Any object</div>
-                            <div class="option" onclick="selectOption(this, 'unit4')">B) Object designed to support a load</div>
-                            <div class="option" onclick="selectOption(this, 'unit4')">C) Only buildings</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="2">
-                        <h4>2. What does a bridge support?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit4')">A) Nothing</div>
-                            <div class="option" onclick="selectOption(this, 'unit4')">B) Only water</div>
-                            <div class="option" onclick="selectOption(this, 'unit4')">C) Cars and people crossing</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="0">
-                        <h4>3. Which part sits on the ground?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit4')">A) Foundation</div>
-                            <div class="option" onclick="selectOption(this, 'unit4')">B) Roof</div>
-                            <div class="option" onclick="selectOption(this, 'unit4')">C) Window</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="1">
-                        <h4>4. What makes a structure strong?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit4')">A) Weak materials</div>
-                            <div class="option" onclick="selectOption(this, 'unit4')">B) Strong materials and support</div>
-                            <div class="option" onclick="selectOption(this, 'unit4')">C) Colorful paint</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="0">
-                        <h4>5. Which is a structure?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit4')">A) A bookshelf</div>
-                            <div class="option" onclick="selectOption(this, 'unit4')">B) Water</div>
-                            <div class="option" onclick="selectOption(this, 'unit4')">C) An apple</div>
-                        </div>
-                    </div>
-                    <button class="submit-quiz-btn" onclick="submitQuiz('unit4')">Submit Quiz</button>
-                    <div class="quiz-results" id="unit4-results"></div>
+                    <button class="drag-check-button" onclick="checkDragDrop()">✓ Check My Answers!</button>
+                    <div class="drag-feedback" id="drag-feedback"></div>
                 </div>
             </div>
         </div>
 
-        <!-- UNIT 5: D2.3 -->
-        <div id="unit5" class="unit">
-            <div class="unit-header">
-                <h2>🎨 Unit D2.3: Materials in Objects</h2>
-                <p class="subtitle">Exploring What Things Are Made Of</p>
-            </div>
-
-            <div class="card">
-                <h3>Common Materials in Everyday Objects</h3>
-                <div class="section">
-                    <p>We use many materials to make objects. Each material has special features!</p>
-                </div>
-
-                <div class="section">
-                    <h4>Common Materials</h4>
-                    <div class="example-box">
-                        <h5>🪵 Wood</h5>
-                        <p><strong>Found in:</strong> Tables, chairs, pencils, houses<br>
-                        <strong>Features:</strong> Strong, can be carved, from trees</p>
+        <!-- UNIT 5: D2.3 - Materials in Objects -->
+        <div id="unit5" class="page">
+            <div class="card" style="border-color: var(--recycle-green);">
+                <h2 class="clickable-audio">🎨 Materials in Objects</h2>
+                
+                <h3>Common Materials!</h3>
+                <p class="clickable-audio">We use many materials to make things! Each has special features!</p>
+                
+                <div class="example-grid">
+                    <div class="example-card clickable-audio" style="border-color: var(--orange-fun);">
+                        <div class="icon">🪵</div>
+                        <h4>Wood</h4>
+                        <p>Strong, from trees!</p>
                     </div>
-                    <div class="example-box">
-                        <h5>🔧 Metal</h5>
-                        <p><strong>Found in:</strong> Spoons, scissors, bikes, cars<br>
-                        <strong>Features:</strong> Very strong, shiny, can be bent</p>
+                    <div class="example-card clickable-audio" style="border-color: var(--blue-sky);">
+                        <div class="icon">🔧</div>
+                        <h4>Metal</h4>
+                        <p>Very strong, shiny!</p>
                     </div>
-                    <div class="example-box">
-                        <h5>🥤 Plastic</h5>
-                        <p><strong>Found in:</strong> Bottles, toys, bags, pens<br>
-                        <strong>Features:</strong> Lightweight, waterproof, moldable</p>
+                    <div class="example-card clickable-audio" style="border-color: var(--yellow-sun);">
+                        <div class="icon">🥤</div>
+                        <h4>Plastic</h4>
+                        <p>Lightweight, waterproof!</p>
                     </div>
-                    <div class="example-box">
-                        <h5>🪟 Glass</h5>
-                        <p><strong>Found in:</strong> Windows, cups, mirrors<br>
-                        <strong>Features:</strong> See-through, smooth, can break</p>
+                    <div class="example-card clickable-audio" style="border-color: var(--purple-grape);">
+                        <div class="icon">🪟</div>
+                        <h4>Glass</h4>
+                        <p>See-through, smooth!</p>
                     </div>
-                    <div class="example-box">
-                        <h5>⚽ Rubber</h5>
-                        <p><strong>Found in:</strong> Balls, tires, erasers<br>
-                        <strong>Features:</strong> Bouncy, stretchy, waterproof</p>
+                    <div class="example-card clickable-audio" style="border-color: var(--recycle-green);">
+                        <div class="icon">⚽</div>
+                        <h4>Rubber</h4>
+                        <p>Bouncy, stretchy!</p>
                     </div>
-                    <div class="example-box">
-                        <h5>👕 Fabric</h5>
-                        <p><strong>Found in:</strong> Clothes, curtains, blankets<br>
-                        <strong>Features:</strong> Soft, flexible, keeps us warm</p>
+                    <div class="example-card clickable-audio" style="border-color: var(--red-apple);">
+                        <div class="icon">👕</div>
+                        <h4>Fabric</h4>
+                        <p>Soft, flexible!</p>
                     </div>
                 </div>
-            </div>
 
-            <div class="card">
-                <h3>🎯 Activity: Match Objects to Materials!</h3>
-                <div class="activity-container">
-                    <h4 class="activity-title">What material is each object?</h4>
-                    <p class="drag-instructions">Drag each object to its main material</p>
+                <!-- Quiz -->
+                <div class="quiz-container">
+                    <h3 class="clickable-audio">🎯 Quiz Time!</h3>
+                    
+                    <div class="question" data-answer="1">
+                        <div class="question-text clickable-audio">1. What comes from trees?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Metal</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Wood</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Glass</div>
+                        </div>
+                    </div>
 
-                    <div class="drag-items" id="unit5-items">
+                    <div class="question" data-answer="2">
+                        <div class="question-text clickable-audio">2. Which is see-through?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Wood</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Metal</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Glass</div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-answer="0">
+                        <div class="question-text clickable-audio">3. Spoons are made of what?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Metal</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Paper</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Rubber</div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-answer="1">
+                        <div class="question-text clickable-audio">4. Which is bouncy?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Glass</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Rubber</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Wood</div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-answer="2">
+                        <div class="question-text clickable-audio">5. Bottles are made from what?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Wood</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Metal</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Plastic</div>
+                        </div>
+                    </div>
+
+                    <button class="quiz-button" onclick="checkQuiz()">✓ Check My Answers!</button>
+                    <div class="quiz-score" id="quiz-score"></div>
+                </div>
+
+                <!-- Drag and Drop -->
+                <div class="drag-drop-container">
+                    <h3 class="clickable-audio">🎮 Match Objects to Materials!</h3>
+                    <p class="clickable-audio">Drag each to its material!</p>
+                    
+                    <div class="drag-items-container" id="drag-items">
                         <div class="drag-item" draggable="true" data-category="wood">🪑 Chair</div>
-                        <div class="drag-item" draggable="true" data-category="metal">🔧 Scissors</div>
+                        <div class="drag-item" draggable="true" data-category="metal">✂️ Scissors</div>
                         <div class="drag-item" draggable="true" data-category="plastic">🥤 Bottle</div>
                         <div class="drag-item" draggable="true" data-category="glass">🪟 Window</div>
                         <div class="drag-item" draggable="true" data-category="fabric">👕 T-Shirt</div>
                         <div class="drag-item" draggable="true" data-category="rubber">⚽ Ball</div>
                     </div>
-
+                    
                     <div class="drop-zones">
-                        <div class="drop-zone" data-zone="wood"><h5>🪵 Wood</h5></div>
-                        <div class="drop-zone" data-zone="metal"><h5>🔧 Metal</h5></div>
-                        <div class="drop-zone" data-zone="plastic"><h5>🥤 Plastic</h5></div>
-                        <div class="drop-zone" data-zone="glass"><h5>🪟 Glass</h5></div>
-                        <div class="drop-zone" data-zone="fabric"><h5>👕 Fabric</h5></div>
-                        <div class="drop-zone" data-zone="rubber"><h5>⚽ Rubber</h5></div>
+                        <div class="drop-zone" data-zone="wood"><h4>🪵 Wood</h4></div>
+                        <div class="drop-zone" data-zone="metal"><h4>🔩 Metal</h4></div>
+                        <div class="drop-zone" data-zone="plastic"><h4>🥤 Plastic</h4></div>
+                        <div class="drop-zone" data-zone="glass"><h4>🪟 Glass</h4></div>
+                        <div class="drop-zone" data-zone="fabric"><h4>👕 Fabric</h4></div>
+                        <div class="drop-zone" data-zone="rubber"><h4>⚽ Rubber</h4></div>
                     </div>
 
-                    <button class="check-btn" onclick="checkActivity('unit5')">Check Answers!</button>
-                    <div class="feedback" id="unit5-feedback"></div>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>📝 Quiz Time!</h3>
-                <div class="quiz-container" id="unit5-quiz">
-                    <div class="question" data-answer="1">
-                        <h4>1. What material comes from trees?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit5')">A) Metal</div>
-                            <div class="option" onclick="selectOption(this, 'unit5')">B) Wood</div>
-                            <div class="option" onclick="selectOption(this, 'unit5')">C) Glass</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="2">
-                        <h4>2. Which material is see-through?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit5')">A) Wood</div>
-                            <div class="option" onclick="selectOption(this, 'unit5')">B) Metal</div>
-                            <div class="option" onclick="selectOption(this, 'unit5')">C) Glass</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="0">
-                        <h4>3. Spoons are usually made of:</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit5')">A) Metal</div>
-                            <div class="option" onclick="selectOption(this, 'unit5')">B) Paper</div>
-                            <div class="option" onclick="selectOption(this, 'unit5')">C) Rubber</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="1">
-                        <h4>4. Which is bouncy and stretchy?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit5')">A) Glass</div>
-                            <div class="option" onclick="selectOption(this, 'unit5')">B) Rubber</div>
-                            <div class="option" onclick="selectOption(this, 'unit5')">C) Wood</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="2">
-                        <h4>5. Water bottles are made from:</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit5')">A) Wood</div>
-                            <div class="option" onclick="selectOption(this, 'unit5')">B) Metal</div>
-                            <div class="option" onclick="selectOption(this, 'unit5')">C) Plastic</div>
-                        </div>
-                    </div>
-                    <button class="submit-quiz-btn" onclick="submitQuiz('unit5')">Submit Quiz</button>
-                    <div class="quiz-results" id="unit5-results"></div>
+                    <button class="drag-check-button" onclick="checkDragDrop()">✓ Check My Answers!</button>
+                    <div class="drag-feedback" id="drag-feedback"></div>
                 </div>
             </div>
         </div>
 
-
-        <!-- UNIT 6: D2.4 -->
-        <div id="unit6" class="unit">
-            <div class="unit-header">
-                <h2>👀 Unit D2.4: Observable Features</h2>
-                <p class="subtitle">Using Our Senses to Explore Objects</p>
-            </div>
-
-            <div class="card">
-                <h3>Describing Objects With Our Senses</h3>
-                <div class="section">
-                    <p>We describe objects using our <strong>five senses</strong>: sight, touch, hearing, smell, and taste. These help us learn about object characteristics!</p>
-                </div>
-
-                <div class="section">
-                    <h4>Using Our Senses</h4>
-                    <div class="example-box">
-                        <h5>👁️ SIGHT (What We See)</h5>
-                        <p>Color • Shape • Size • Pattern • Texture</p>
+        <!-- UNIT 6: D2.4 - Observable Features -->
+        <div id="unit6" class="page">
+            <div class="card" style="border-color: var(--yellow-sun);">
+                <h2 class="clickable-audio">👀 Using Our Senses</h2>
+                
+                <h3>The 5 Senses!</h3>
+                <p class="clickable-audio">We use our senses to learn about objects!</p>
+                
+                <div class="example-grid">
+                    <div class="example-card clickable-audio" style="border-color: var(--blue-sky);">
+                        <div class="icon">👁️</div>
+                        <h4>Sight</h4>
+                        <p>See color, shape, size!</p>
                     </div>
-                    <div class="example-box">
-                        <h5>✋ TOUCH (What We Feel)</h5>
-                        <p>Texture (smooth, rough, bumpy) • Temperature • Weight • Flexibility</p>
+                    <div class="example-card clickable-audio" style="border-color: var(--orange-fun);">
+                        <div class="icon">✋</div>
+                        <h4>Touch</h4>
+                        <p>Feel soft, hard, bumpy!</p>
                     </div>
-                    <div class="example-box">
-                        <h5>👂 HEARING (What We Hear)</h5>
-                        <p>Sounds objects make • Metal "clinks" • Wood "knocks" • Paper "crinkles"</p>
+                    <div class="example-card clickable-audio" style="border-color: var(--purple-grape);">
+                        <div class="icon">👂</div>
+                        <h4>Hearing</h4>
+                        <p>Hear sounds!</p>
                     </div>
-                    <div class="example-box">
-                        <h5>👃 SMELL (What We Smell)</h5>
-                        <p>No smell • Nice smells (flowers, fruit) • Bad smells (garbage)</p>
+                    <div class="example-card clickable-audio" style="border-color: var(--recycle-green);">
+                        <div class="icon">👃</div>
+                        <h4>Smell</h4>
+                        <p>Smell nice or bad!</p>
                     </div>
                 </div>
 
-                <div class="section">
-                    <h4>⚠️ Safety With Senses</h4>
-                    <ul>
-                        <li>Don't taste things unless an adult says it's safe! ⚠️</li>
-                        <li>Don't touch very hot or sharp objects 🔥</li>
-                        <li>Don't smell dangerous things 🚫</li>
-                    </ul>
+                <h3>Safety First!</h3>
+                <p class="clickable-audio">⚠️ Don't taste without asking an adult! Don't touch hot or sharp things!</p>
+
+                <!-- Quiz -->
+                <div class="quiz-container">
+                    <h3 class="clickable-audio">🎯 Quiz Time!</h3>
+                    
+                    <div class="question" data-answer="0">
+                        <div class="question-text clickable-audio">1. Which sense shows colors?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Sight</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Touch</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Hearing</div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-answer="1">
+                        <div class="question-text clickable-audio">2. How do we know if soft or hard?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">By looking</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">By touching</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">By smelling</div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-answer="2">
+                        <div class="question-text clickable-audio">3. Which sense tells us about sounds?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Sight</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Smell</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Hearing</div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-answer="0">
+                        <div class="question-text clickable-audio">4. What should you NOT do?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Taste without asking</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Look at things</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Listen to sounds</div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-answer="1">
+                        <div class="question-text clickable-audio">5. A ball is round. Which sense?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Smell</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Sight</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Taste</div>
+                        </div>
+                    </div>
+
+                    <button class="quiz-button" onclick="checkQuiz()">✓ Check My Answers!</button>
+                    <div class="quiz-score" id="quiz-score"></div>
                 </div>
-            </div>
 
-            <div class="card">
-                <h3>🎯 Activity: Match the Description!</h3>
-                <div class="activity-container">
-                    <h4 class="activity-title">Which sense would you use?</h4>
-                    <p class="drag-instructions">Match each observation to the sense</p>
-
-                    <div class="drag-items" id="unit6-items">
+                <!-- Drag and Drop -->
+                <div class="drag-drop-container">
+                    <h3 class="clickable-audio">🎮 Match to Senses!</h3>
+                    <p class="clickable-audio">Which sense would you use?</p>
+                    
+                    <div class="drag-items-container" id="drag-items">
                         <div class="drag-item" draggable="true" data-category="sight">Red color</div>
-                        <div class="drag-item" draggable="true" data-category="touch">Soft texture</div>
-                        <div class="drag-item" draggable="true" data-category="hearing">Loud sound</div>
-                        <div class="drag-item" draggable="true" data-category="sight">Square shape</div>
-                        <div class="drag-item" draggable="true" data-category="touch">Bumpy surface</div>
-                        <div class="drag-item" draggable="true" data-category="smell">Sweet smell</div>
+                        <div class="drag-item" draggable="true" data-category="touch">Soft</div>
+                        <div class="drag-item" draggable="true" data-category="hearing">Loud</div>
+                        <div class="drag-item" draggable="true" data-category="sight">Square</div>
+                        <div class="drag-item" draggable="true" data-category="touch">Bumpy</div>
+                        <div class="drag-item" draggable="true" data-category="smell">Sweet</div>
                     </div>
-
+                    
                     <div class="drop-zones">
-                        <div class="drop-zone" data-zone="sight"><h5>👁️ Sight</h5></div>
-                        <div class="drop-zone" data-zone="touch"><h5>✋ Touch</h5></div>
-                        <div class="drop-zone" data-zone="hearing"><h5>👂 Hearing</h5></div>
-                        <div class="drop-zone" data-zone="smell"><h5>👃 Smell</h5></div>
+                        <div class="drop-zone" data-zone="sight"><h4>👁️ Sight</h4></div>
+                        <div class="drop-zone" data-zone="touch"><h4>✋ Touch</h4></div>
+                        <div class="drop-zone" data-zone="hearing"><h4>👂 Hearing</h4></div>
+                        <div class="drop-zone" data-zone="smell"><h4>👃 Smell</h4></div>
                     </div>
 
-                    <button class="check-btn" onclick="checkActivity('unit6')">Check Answers!</button>
-                    <div class="feedback" id="unit6-feedback"></div>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>📝 Quiz Time!</h3>
-                <div class="quiz-container" id="unit6-quiz">
-                    <div class="question" data-answer="0">
-                        <h4>1. Which sense shows colors?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit6')">A) Sight</div>
-                            <div class="option" onclick="selectOption(this, 'unit6')">B) Touch</div>
-                            <div class="option" onclick="selectOption(this, 'unit6')">C) Hearing</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="1">
-                        <h4>2. How do we know if soft or hard?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit6')">A) By looking</div>
-                            <div class="option" onclick="selectOption(this, 'unit6')">B) By touching</div>
-                            <div class="option" onclick="selectOption(this, 'unit6')">C) By smelling</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="2">
-                        <h4>3. Which sense tells us about sounds?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit6')">A) Sight</div>
-                            <div class="option" onclick="selectOption(this, 'unit6')">B) Smell</div>
-                            <div class="option" onclick="selectOption(this, 'unit6')">C) Hearing</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="0">
-                        <h4>4. What should you NOT do?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit6')">A) Taste without asking an adult</div>
-                            <div class="option" onclick="selectOption(this, 'unit6')">B) Look at objects</div>
-                            <div class="option" onclick="selectOption(this, 'unit6')">C) Listen to sounds</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="1">
-                        <h4>5. A ball is round. Which sense?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit6')">A) Smell</div>
-                            <div class="option" onclick="selectOption(this, 'unit6')">B) Sight</div>
-                            <div class="option" onclick="selectOption(this, 'unit6')">C) Taste</div>
-                        </div>
-                    </div>
-                    <button class="submit-quiz-btn" onclick="submitQuiz('unit6')">Submit Quiz</button>
-                    <div class="quiz-results" id="unit6-results"></div>
+                    <button class="drag-check-button" onclick="checkDragDrop()">✓ Check My Answers!</button>
+                    <div class="drag-feedback" id="drag-feedback"></div>
                 </div>
             </div>
         </div>
-
-        <!-- UNIT 7: D2.5 -->
-        <div id="unit7" class="unit">
-            <div class="unit-header">
-                <h2>🎯 Unit D2.5: Object Purposes</h2>
-                <p class="subtitle">Why Do We Use Different Objects?</p>
-            </div>
-
-            <div class="card">
-                <h3>What is a Purpose?</h3>
-                <div class="section">
-                    <p>Every object has a <strong>purpose</strong>. A purpose is the job or reason we use something. Objects are designed to help us do specific things!</p>
+        <!-- UNIT 7: D2.5 - Object Purposes -->
+        <div id="unit7" class="page">
+            <div class="card" style="border-color: var(--red-apple);">
+                <h2 class="clickable-audio">🎯 Object Purposes</h2>
+                
+                <h3>Every Object Has a Job!</h3>
+                <p class="clickable-audio">A purpose is why we use something! Objects help us do things!</p>
+                
+                <div class="example-grid">
+                    <div class="example-card clickable-audio" style="border-color: var(--blue-sky);">
+                        <div class="icon">🪑</div>
+                        <h4>Chair</h4>
+                        <p>For sitting!</p>
+                    </div>
+                    <div class="example-card clickable-audio" style="border-color: var(--orange-fun);">
+                        <div class="icon">✏️</div>
+                        <h4>Pencil</h4>
+                        <p>For writing!</p>
+                    </div>
+                    <div class="example-card clickable-audio" style="border-color: var(--recycle-green);">
+                        <div class="icon">🥤</div>
+                        <h4>Cup</h4>
+                        <p>For drinking!</p>
+                    </div>
+                    <div class="example-card clickable-audio" style="border-color: var(--purple-grape);">
+                        <div class="icon">🌉</div>
+                        <h4>Bridge</h4>
+                        <p>For crossing!</p>
+                    </div>
+                    <div class="example-card clickable-audio" style="border-color: var(--yellow-sun);">
+                        <div class="icon">🪟</div>
+                        <h4>Window</h4>
+                        <p>For seeing outside!</p>
+                    </div>
+                    <div class="example-card clickable-audio" style="border-color: var(--red-apple);">
+                        <div class="icon">☂️</div>
+                        <h4>Umbrella</h4>
+                        <p>For blocking rain!</p>
+                    </div>
                 </div>
 
-                <div class="section">
-                    <h4>Common Object Purposes</h4>
-                    <div class="example-box">
-                        <h5>🪑 Chair</h5>
-                        <p><strong>Purpose:</strong> To sit on<br><strong>How:</strong> Supports our body when sitting</p>
+                <!-- Quiz -->
+                <div class="quiz-container">
+                    <h3 class="clickable-audio">🎯 Quiz Time!</h3>
+                    
+                    <div class="question" data-answer="1">
+                        <div class="question-text clickable-audio">1. What's a chair's purpose?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">To write</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">To sit</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">To drink</div>
+                        </div>
                     </div>
-                    <div class="example-box">
-                        <h5>✏️ Pencil</h5>
-                        <p><strong>Purpose:</strong> To write and draw<br><strong>How:</strong> Leaves marks on paper</p>
+
+                    <div class="question" data-answer="0">
+                        <div class="question-text clickable-audio">2. What's a pencil for?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Writing</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Cutting</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Holding water</div>
+                        </div>
                     </div>
-                    <div class="example-box">
-                        <h5>🥤 Cup</h5>
-                        <p><strong>Purpose:</strong> To hold drinks<br><strong>How:</strong> Keeps liquid in one place</p>
+
+                    <div class="question" data-answer="2">
+                        <div class="question-text clickable-audio">3. What's a bridge for?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Keeping warm</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Writing</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Crossing over things</div>
+                        </div>
                     </div>
-                    <div class="example-box">
-                        <h5>🌉 Bridge</h5>
-                        <p><strong>Purpose:</strong> To help us cross over<br><strong>How:</strong> Lets us walk or drive over obstacles</p>
+
+                    <div class="question" data-answer="1">
+                        <div class="question-text clickable-audio">4. Why is a cup shaped like a bowl?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">To look pretty</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">To hold liquid</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">To make noise</div>
+                        </div>
                     </div>
-                    <div class="example-box">
-                        <h5>🪟 Window</h5>
-                        <p><strong>Purpose:</strong> To let light in and see outside<br><strong>How:</strong> Made of see-through glass</p>
+
+                    <div class="question" data-answer="0">
+                        <div class="question-text clickable-audio">5. Which have same purpose?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Pencil, pen, marker</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Chair, cup, window</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Door, ball, scissors</div>
+                        </div>
                     </div>
+
+                    <button class="quiz-button" onclick="checkQuiz()">✓ Check My Answers!</button>
+                    <div class="quiz-score" id="quiz-score"></div>
                 </div>
 
-                <div class="section">
-                    <h4>Design Matches Purpose</h4>
-                    <ul>
-                        <li>A <strong>cup</strong> is shaped like a bowl to hold liquid 🥤</li>
-                        <li>A <strong>chair</strong> has legs to support sitting 🪑</li>
-                        <li>An <strong>umbrella</strong> is curved to block rain ☂️</li>
-                        <li><strong>Scissors</strong> have two blades to cut ✂️</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>🎯 Activity: Match Objects to Purposes!</h3>
-                <div class="activity-container">
-                    <h4 class="activity-title">What is each object used for?</h4>
-                    <p class="drag-instructions">Drag each object to its purpose</p>
-
-                    <div class="drag-items" id="unit7-items">
+                <!-- Drag and Drop -->
+                <div class="drag-drop-container">
+                    <h3 class="clickable-audio">🎮 Match Objects to Purposes!</h3>
+                    <p class="clickable-audio">What is each for?</p>
+                    
+                    <div class="drag-items-container" id="drag-items">
                         <div class="drag-item" draggable="true" data-category="sit">🪑 Chair</div>
                         <div class="drag-item" draggable="true" data-category="write">✏️ Pencil</div>
                         <div class="drag-item" draggable="true" data-category="drink">🥤 Cup</div>
@@ -1041,463 +1425,374 @@
                         <div class="drag-item" draggable="true" data-category="cut">✂️ Scissors</div>
                         <div class="drag-item" draggable="true" data-category="see">🪟 Window</div>
                     </div>
-
+                    
                     <div class="drop-zones">
-                        <div class="drop-zone" data-zone="sit"><h5>To Sit</h5></div>
-                        <div class="drop-zone" data-zone="write"><h5>To Write</h5></div>
-                        <div class="drop-zone" data-zone="drink"><h5>To Hold Drinks</h5></div>
-                        <div class="drop-zone" data-zone="carry"><h5>To Carry</h5></div>
-                        <div class="drop-zone" data-zone="cut"><h5>To Cut</h5></div>
-                        <div class="drop-zone" data-zone="see"><h5>To See Through</h5></div>
+                        <div class="drop-zone" data-zone="sit"><h4>To Sit</h4></div>
+                        <div class="drop-zone" data-zone="write"><h4>To Write</h4></div>
+                        <div class="drop-zone" data-zone="drink"><h4>To Drink</h4></div>
+                        <div class="drop-zone" data-zone="carry"><h4>To Carry</h4></div>
+                        <div class="drop-zone" data-zone="cut"><h4>To Cut</h4></div>
+                        <div class="drop-zone" data-zone="see"><h4>To See</h4></div>
                     </div>
 
-                    <button class="check-btn" onclick="checkActivity('unit7')">Check Answers!</button>
-                    <div class="feedback" id="unit7-feedback"></div>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>📝 Quiz Time!</h3>
-                <div class="quiz-container" id="unit7-quiz">
-                    <div class="question" data-answer="1">
-                        <h4>1. What is a chair's purpose?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit7')">A) To write on</div>
-                            <div class="option" onclick="selectOption(this, 'unit7')">B) To sit on</div>
-                            <div class="option" onclick="selectOption(this, 'unit7')">C) To drink from</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="0">
-                        <h4>2. What is a pencil used for?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit7')">A) Writing and drawing</div>
-                            <div class="option" onclick="selectOption(this, 'unit7')">B) Cutting paper</div>
-                            <div class="option" onclick="selectOption(this, 'unit7')">C) Holding water</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="2">
-                        <h4>3. What is a bridge's purpose?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit7')">A) To keep warm</div>
-                            <div class="option" onclick="selectOption(this, 'unit7')">B) To write on</div>
-                            <div class="option" onclick="selectOption(this, 'unit7')">C) To help cross over things</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="1">
-                        <h4>4. Why is a cup shaped like a bowl?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit7')">A) To look pretty</div>
-                            <div class="option" onclick="selectOption(this, 'unit7')">B) To hold liquid inside</div>
-                            <div class="option" onclick="selectOption(this, 'unit7')">C) To make noise</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="0">
-                        <h4>5. Which have the same purpose?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit7')">A) Pencil, pen, and marker</div>
-                            <div class="option" onclick="selectOption(this, 'unit7')">B) Chair, cup, and window</div>
-                            <div class="option" onclick="selectOption(this, 'unit7')">C) Door, backpack, scissors</div>
-                        </div>
-                    </div>
-                    <button class="submit-quiz-btn" onclick="submitQuiz('unit7')">Submit Quiz</button>
-                    <div class="quiz-results" id="unit7-results"></div>
+                    <button class="drag-check-button" onclick="checkDragDrop()">✓ Check My Answers!</button>
+                    <div class="drag-feedback" id="drag-feedback"></div>
                 </div>
             </div>
         </div>
 
-        <!-- UNIT 8: D2.6 -->
-        <div id="unit8" class="unit">
-            <div class="unit-header">
-                <h2>⭐ Unit D2.6: Material Properties</h2>
-                <p class="subtitle">Why Materials Matter!</p>
-            </div>
-
-            <div class="card">
-                <h3>What Are Material Properties?</h3>
-                <div class="section">
-                    <p><strong>Material properties</strong> are special features that materials have. These properties help objects do their jobs! The right material makes the object work better!</p>
-                </div>
-
-                <div class="section">
-                    <h4>Important Material Properties</h4>
-                    <div class="example-box">
-                        <h5>💪 Strength</h5>
-                        <p><strong>Strong materials:</strong> Metal, wood, concrete<br>
-                        <strong>Used for:</strong> Buildings, bridges, furniture<br>
-                        <strong>Example:</strong> Metal bridge holds many cars!</p>
+        <!-- UNIT 8: D2.6 - Material Properties -->
+        <div id="unit8" class="page">
+            <div class="card" style="border-color: var(--blue-sky);">
+                <h2 class="clickable-audio">⭐ Material Properties</h2>
+                
+                <h3>Materials Have Special Features!</h3>
+                <p class="clickable-audio">Properties help objects do their jobs!</p>
+                
+                <div class="example-grid">
+                    <div class="example-card clickable-audio" style="border-color: var(--orange-fun);">
+                        <div class="icon">💪</div>
+                        <h4>Strong</h4>
+                        <p>Metal, wood, concrete!</p>
                     </div>
-                    <div class="example-box">
-                        <h5>🌊 Waterproof</h5>
-                        <p><strong>Waterproof materials:</strong> Plastic, rubber, glass<br>
-                        <strong>Used for:</strong> Umbrellas, raincoats, water bottles<br>
-                        <strong>Example:</strong> Plastic bottle doesn't leak!</p>
+                    <div class="example-card clickable-audio" style="border-color: var(--blue-sky);">
+                        <div class="icon">🌊</div>
+                        <h4>Waterproof</h4>
+                        <p>Plastic, rubber, glass!</p>
                     </div>
-                    <div class="example-box">
-                        <h5>🎈 Flexibility (Bendy)</h5>
-                        <p><strong>Flexible materials:</strong> Rubber, fabric, plastic<br>
-                        <strong>Used for:</strong> Rubber bands, clothes, bags<br>
-                        <strong>Example:</strong> Rubber band stretches and bounces back!</p>
+                    <div class="example-card clickable-audio" style="border-color: var(--purple-grape);">
+                        <div class="icon">🎈</div>
+                        <h4>Bendy</h4>
+                        <p>Rubber, fabric, plastic!</p>
                     </div>
-                    <div class="example-box">
-                        <h5>🪟 Transparency (See-Through)</h5>
-                        <p><strong>Transparent materials:</strong> Glass, clear plastic<br>
-                        <strong>Used for:</strong> Windows, eyeglasses<br>
-                        <strong>Example:</strong> Glass window lets us see outside!</p>
+                    <div class="example-card clickable-audio" style="border-color: var(--yellow-sun);">
+                        <div class="icon">🪟</div>
+                        <h4>See-Through</h4>
+                        <p>Glass, clear plastic!</p>
                     </div>
-                    <div class="example-box">
-                        <h5>🧸 Softness</h5>
-                        <p><strong>Soft materials:</strong> Fabric, cotton, foam<br>
-                        <strong>Used for:</strong> Pillows, stuffed animals, blankets<br>
-                        <strong>Example:</strong> Soft pillow is comfortable!</p>
+                    <div class="example-card clickable-audio" style="border-color: var(--recycle-green);">
+                        <div class="icon">🧸</div>
+                        <h4>Soft</h4>
+                        <p>Fabric, cotton, foam!</p>
                     </div>
                 </div>
 
-                <div class="section">
-                    <h4>Choosing the Right Material</h4>
-                    <ul>
-                        <li>For a <strong>bridge</strong> → Need STRENGTH (metal, concrete)</li>
-                        <li>For a <strong>raincoat</strong> → Need WATERPROOF (plastic, rubber)</li>
-                        <li>For a <strong>window</strong> → Need TRANSPARENCY (glass)</li>
-                        <li>For a <strong>teddy bear</strong> → Need SOFTNESS (fabric, cotton)</li>
-                        <li>For a <strong>rubber band</strong> → Need FLEXIBILITY (rubber)</li>
-                    </ul>
+                <!-- Quiz -->
+                <div class="quiz-container">
+                    <h3 class="clickable-audio">🎯 Quiz Time!</h3>
+                    
+                    <div class="question" data-answer="0">
+                        <div class="question-text clickable-audio">1. What does a bridge need?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Strength</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Softness</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">See-through</div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-answer="1">
+                        <div class="question-text clickable-audio">2. Which is waterproof?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Paper</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Plastic</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Wood</div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-answer="2">
+                        <div class="question-text clickable-audio">3. What does a window need?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Softness</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Bendiness</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">See-through</div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-answer="1">
+                        <div class="question-text clickable-audio">4. Which is soft?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Metal</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Fabric</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Glass</div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-answer="0">
+                        <div class="question-text clickable-audio">5. A rubber band is what?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Bendy</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">See-through</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Soft</div>
+                        </div>
+                    </div>
+
+                    <button class="quiz-button" onclick="checkQuiz()">✓ Check My Answers!</button>
+                    <div class="quiz-score" id="quiz-score"></div>
                 </div>
-            </div>
 
-            <div class="card">
-                <h3>🎯 Activity: Match Properties to Objects!</h3>
-                <div class="activity-container">
-                    <h4 class="activity-title">Which property does each object need?</h4>
-                    <p class="drag-instructions">Drag to the property it needs most</p>
-
-                    <div class="drag-items" id="unit8-items">
+                <!-- Drag and Drop -->
+                <div class="drag-drop-container">
+                    <h3 class="clickable-audio">🎮 Match Properties!</h3>
+                    <p class="clickable-audio">What property does each need?</p>
+                    
+                    <div class="drag-items-container" id="drag-items">
                         <div class="drag-item" draggable="true" data-category="strong">🌉 Bridge</div>
                         <div class="drag-item" draggable="true" data-category="waterproof">☂️ Umbrella</div>
                         <div class="drag-item" draggable="true" data-category="transparent">🪟 Window</div>
-                        <div class="drag-item" draggable="true" data-category="soft">🧸 Teddy Bear</div>
-                        <div class="drag-item" draggable="true" data-category="flexible">🎈 Balloon</div>
+                        <div class="drag-item" draggable="true" data-category="soft">🧸 Teddy</div>
+                        <div class="drag-item" draggable="true" data-category="bendy">🎈 Balloon</div>
                         <div class="drag-item" draggable="true" data-category="strong">🏠 House</div>
                     </div>
-
+                    
                     <div class="drop-zones">
-                        <div class="drop-zone" data-zone="strong"><h5>💪 Strong</h5></div>
-                        <div class="drop-zone" data-zone="waterproof"><h5>🌊 Waterproof</h5></div>
-                        <div class="drop-zone" data-zone="transparent"><h5>🪟 See-Through</h5></div>
-                        <div class="drop-zone" data-zone="soft"><h5>🧸 Soft</h5></div>
-                        <div class="drop-zone" data-zone="flexible"><h5>🎈 Bendy</h5></div>
+                        <div class="drop-zone" data-zone="strong"><h4>💪 Strong</h4></div>
+                        <div class="drop-zone" data-zone="waterproof"><h4>🌊 Waterproof</h4></div>
+                        <div class="drop-zone" data-zone="transparent"><h4>🪟 See-Through</h4></div>
+                        <div class="drop-zone" data-zone="soft"><h4>🧸 Soft</h4></div>
+                        <div class="drop-zone" data-zone="bendy"><h4>🎈 Bendy</h4></div>
                     </div>
 
-                    <button class="check-btn" onclick="checkActivity('unit8')">Check Answers!</button>
-                    <div class="feedback" id="unit8-feedback"></div>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>📝 Quiz Time!</h3>
-                <div class="quiz-container" id="unit8-quiz">
-                    <div class="question" data-answer="0">
-                        <h4>1. What does a bridge need most?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit8')">A) Strength</div>
-                            <div class="option" onclick="selectOption(this, 'unit8')">B) Softness</div>
-                            <div class="option" onclick="selectOption(this, 'unit8')">C) Transparency</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="1">
-                        <h4>2. Which material is waterproof?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit8')">A) Paper</div>
-                            <div class="option" onclick="selectOption(this, 'unit8')">B) Plastic</div>
-                            <div class="option" onclick="selectOption(this, 'unit8')">C) Wood</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="2">
-                        <h4>3. What property does a window need?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit8')">A) Softness</div>
-                            <div class="option" onclick="selectOption(this, 'unit8')">B) Flexibility</div>
-                            <div class="option" onclick="selectOption(this, 'unit8')">C) Transparency</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="1">
-                        <h4>4. Which is a soft material?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit8')">A) Metal</div>
-                            <div class="option" onclick="selectOption(this, 'unit8')">B) Fabric</div>
-                            <div class="option" onclick="selectOption(this, 'unit8')">C) Glass</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="0">
-                        <h4>5. A rubber band is:</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit8')">A) Flexible</div>
-                            <div class="option" onclick="selectOption(this, 'unit8')">B) Transparent</div>
-                            <div class="option" onclick="selectOption(this, 'unit8')">C) Soft</div>
-                        </div>
-                    </div>
-                    <button class="submit-quiz-btn" onclick="submitQuiz('unit8')">Submit Quiz</button>
-                    <div class="quiz-results" id="unit8-results"></div>
+                    <button class="drag-check-button" onclick="checkDragDrop()">✓ Check My Answers!</button>
+                    <div class="drag-feedback" id="drag-feedback"></div>
                 </div>
             </div>
         </div>
 
-
-        <!-- UNIT 9: D2.7 -->
-        <div id="unit9" class="unit">
-            <div class="unit-header">
-                <h2>🔩 Unit D2.7: Types of Fasteners</h2>
-                <p class="subtitle">How We Connect Things Together!</p>
-            </div>
-
-            <div class="card">
-                <h3>What Are Fasteners?</h3>
-                <div class="section">
-                    <p><strong>Fasteners</strong> are objects that hold things together. We use different fasteners for different jobs!</p>
-                </div>
-
-                <div class="section">
-                    <h4>Common Types of Fasteners</h4>
-                    <div class="example-box">
-                        <h5>📌 Nails</h5>
-                        <p><strong>What they do:</strong> Hold wood pieces together<br>
-                        <strong>How they work:</strong> Hammered into wood to stay in place<br>
-                        <strong>Used in:</strong> Building houses, making furniture</p>
+        <!-- UNIT 9: D2.7 - Fasteners -->
+        <div id="unit9" class="page">
+            <div class="card" style="border-color: var(--purple-grape);">
+                <h2 class="clickable-audio">🔩 Fasteners</h2>
+                
+                <h3>Fasteners Hold Things Together!</h3>
+                <p class="clickable-audio">We use different fasteners for different jobs!</p>
+                
+                <div class="example-grid">
+                    <div class="example-card clickable-audio" style="border-color: var(--orange-fun);">
+                        <div class="icon">📌</div>
+                        <h4>Nails</h4>
+                        <p>For wood!</p>
                     </div>
-                    <div class="example-box">
-                        <h5>🔩 Screws</h5>
-                        <p><strong>What they do:</strong> Hold materials together very tightly<br>
-                        <strong>How they work:</strong> Twisted in with a screwdriver<br>
-                        <strong>Used in:</strong> Toys, furniture, door hinges</p>
+                    <div class="example-card clickable-audio" style="border-color: var(--blue-sky);">
+                        <div class="icon">🔩</div>
+                        <h4>Screws</h4>
+                        <p>Hold tight!</p>
                     </div>
-                    <div class="example-box">
-                        <h5>🧷 Zippers</h5>
-                        <p><strong>What they do:</strong> Connect fabric that needs to open and close<br>
-                        <strong>How they work:</strong> Teeth lock together when you pull the slider<br>
-                        <strong>Used in:</strong> Jackets, bags, pencil cases</p>
+                    <div class="example-card clickable-audio" style="border-color: var(--recycle-green);">
+                        <div class="icon">🧷</div>
+                        <h4>Zippers</h4>
+                        <p>For jackets!</p>
                     </div>
-                    <div class="example-box">
-                        <h5>🔘 Buttons</h5>
-                        <p><strong>What they do:</strong> Connect fabric that opens and closes<br>
-                        <strong>How they work:</strong> Go through buttonholes<br>
-                        <strong>Used in:</strong> Shirts, pants, coats</p>
+                    <div class="example-card clickable-audio" style="border-color: var(--yellow-sun);">
+                        <div class="icon">🔘</div>
+                        <h4>Buttons</h4>
+                        <p>For shirts!</p>
                     </div>
-                    <div class="example-box">
-                        <h5>✨ Velcro</h5>
-                        <p><strong>What they do:</strong> Stick things together temporarily<br>
-                        <strong>How they work:</strong> Hooks catch on loops<br>
-                        <strong>Used in:</strong> Shoes, backpacks, wallets</p>
+                    <div class="example-card clickable-audio" style="border-color: var(--purple-grape);">
+                        <div class="icon">✨</div>
+                        <h4>Velcro</h4>
+                        <p>For shoes!</p>
                     </div>
-                    <div class="example-box">
-                        <h5>📎 Paper Clips</h5>
-                        <p><strong>What they do:</strong> Hold papers together<br>
-                        <strong>How they work:</strong> Bend around paper edges<br>
-                        <strong>Used in:</strong> School work, offices</p>
-                    </div>
-                    <div class="example-box">
-                        <h5>🩹 Tape</h5>
-                        <p><strong>What they do:</strong> Stick things together<br>
-                        <strong>How they work:</strong> Sticky side glues to surfaces<br>
-                        <strong>Used in:</strong> Wrapping gifts, holding paper, fixing things</p>
-                    </div>
-                    <div class="example-box">
-                        <h5>🧲 Magnets</h5>
-                        <p><strong>What they do:</strong> Hold metal things together<br>
-                        <strong>How they work:</strong> Pull metal objects to them<br>
-                        <strong>Used in:</strong> Fridge magnets, magnetic toys</p>
+                    <div class="example-card clickable-audio" style="border-color: var(--red-apple);">
+                        <div class="icon">📎</div>
+                        <h4>Clips</h4>
+                        <p>For paper!</p>
                     </div>
                 </div>
 
-                <div class="section">
-                    <h4>Why Different Fasteners?</h4>
-                    <p>We pick fasteners based on what we need:</p>
-                    <ul>
-                        <li><strong>Permanent</strong> (stay forever) → Nails, screws, glue</li>
-                        <li><strong>Temporary</strong> (easy to undo) → Zippers, buttons, velcro, clips</li>
-                        <li><strong>For fabric</strong> → Buttons, zippers, velcro</li>
-                        <li><strong>For wood</strong> → Nails, screws</li>
-                        <li><strong>For paper</strong> → Clips, staples, tape</li>
-                    </ul>
+                <!-- Quiz -->
+                <div class="quiz-container">
+                    <h3 class="clickable-audio">🎯 Quiz Time!</h3>
+                    
+                    <div class="question" data-answer="1">
+                        <div class="question-text clickable-audio">1. What are fasteners?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Only nails</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Things that hold together</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Only for clothes</div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-answer="0">
+                        <div class="question-text clickable-audio">2. How do you use a screw?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Twist it in</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Hammer it</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Stick it</div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-answer="2">
+                        <div class="question-text clickable-audio">3. What's on jackets?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Nails</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Paper clips</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Zippers</div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-answer="1">
+                        <div class="question-text clickable-audio">4. Which is temporary?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Nail in wood</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Velcro on shoes</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Glue on paper</div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-answer="0">
+                        <div class="question-text clickable-audio">5. What holds papers?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Paper clips</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Nails</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Buttons</div>
+                        </div>
+                    </div>
+
+                    <button class="quiz-button" onclick="checkQuiz()">✓ Check My Answers!</button>
+                    <div class="quiz-score" id="quiz-score"></div>
                 </div>
-            </div>
 
-            <div class="card">
-                <h3>🎯 Activity: Match Fasteners to Uses!</h3>
-                <div class="activity-container">
-                    <h4 class="activity-title">Which fastener for each job?</h4>
-                    <p class="drag-instructions">Drag each fastener to what it's used for</p>
-
-                    <div class="drag-items" id="unit9-items">
+                <!-- Drag and Drop -->
+                <div class="drag-drop-container">
+                    <h3 class="clickable-audio">🎮 Match Fasteners to Uses!</h3>
+                    <p class="clickable-audio">What is each for?</p>
+                    
+                    <div class="drag-items-container" id="drag-items">
                         <div class="drag-item" draggable="true" data-category="wood">📌 Nail</div>
                         <div class="drag-item" draggable="true" data-category="fabric">🧷 Zipper</div>
-                        <div class="drag-item" draggable="true" data-category="paper">📎 Paper Clip</div>
+                        <div class="drag-item" draggable="true" data-category="paper">📎 Clip</div>
                         <div class="drag-item" draggable="true" data-category="fabric">🔘 Button</div>
                         <div class="drag-item" draggable="true" data-category="wood">🔩 Screw</div>
                         <div class="drag-item" draggable="true" data-category="paper">🩹 Tape</div>
                     </div>
-
+                    
                     <div class="drop-zones">
-                        <div class="drop-zone" data-zone="wood"><h5>🪵 For Wood</h5></div>
-                        <div class="drop-zone" data-zone="fabric"><h5>👕 For Fabric</h5></div>
-                        <div class="drop-zone" data-zone="paper"><h5>📄 For Paper</h5></div>
+                        <div class="drop-zone" data-zone="wood"><h4>🪵 For Wood</h4></div>
+                        <div class="drop-zone" data-zone="fabric"><h4>👕 For Fabric</h4></div>
+                        <div class="drop-zone" data-zone="paper"><h4>📄 For Paper</h4></div>
                     </div>
 
-                    <button class="check-btn" onclick="checkActivity('unit9')">Check Answers!</button>
-                    <div class="feedback" id="unit9-feedback"></div>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>📝 Quiz Time!</h3>
-                <div class="quiz-container" id="unit9-quiz">
-                    <div class="question" data-answer="1">
-                        <h4>1. What are fasteners?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit9')">A) Only nails</div>
-                            <div class="option" onclick="selectOption(this, 'unit9')">B) Things that hold objects together</div>
-                            <div class="option" onclick="selectOption(this, 'unit9')">C) Only for clothes</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="0">
-                        <h4>2. How do you use a screw?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit9')">A) Twist it in with a screwdriver</div>
-                            <div class="option" onclick="selectOption(this, 'unit9')">B) Hammer it in</div>
-                            <div class="option" onclick="selectOption(this, 'unit9')">C) Stick it on</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="2">
-                        <h4>3. What fastener is used on jackets?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit9')">A) Nails</div>
-                            <div class="option" onclick="selectOption(this, 'unit9')">B) Paper clips</div>
-                            <div class="option" onclick="selectOption(this, 'unit9')">C) Zippers</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="1">
-                        <h4>4. Which fastener is temporary?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit9')">A) Nail hammered in wood</div>
-                            <div class="option" onclick="selectOption(this, 'unit9')">B) Velcro on shoes</div>
-                            <div class="option" onclick="selectOption(this, 'unit9')">C) Glue on paper</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="0">
-                        <h4>5. What holds papers together?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit9')">A) Paper clips</div>
-                            <div class="option" onclick="selectOption(this, 'unit9')">B) Nails</div>
-                            <div class="option" onclick="selectOption(this, 'unit9')">C) Buttons</div>
-                        </div>
-                    </div>
-                    <button class="submit-quiz-btn" onclick="submitQuiz('unit9')">Submit Quiz</button>
-                    <div class="quiz-results" id="unit9-results"></div>
+                    <button class="drag-check-button" onclick="checkDragDrop()">✓ Check My Answers!</button>
+                    <div class="drag-feedback" id="drag-feedback"></div>
                 </div>
             </div>
         </div>
 
-        <!-- UNIT 10: D2.8 -->
-        <div id="unit10" class="unit">
-            <div class="unit-header">
-                <h2>🌿 Unit D2.8: Natural Materials</h2>
-                <p class="subtitle">Materials That Come From Nature!</p>
-            </div>
-
-            <div class="card">
-                <h3>What Are Natural Materials?</h3>
-                <div class="section">
-                    <p><strong>Natural materials</strong> come from nature - from plants, animals, or the earth. We use these materials to make many everyday objects!</p>
-                </div>
-
-                <div class="section">
-                    <h4>Materials From Plants</h4>
-                    <div class="example-box">
-                        <h5>🌲 Wood</h5>
-                        <p><strong>Comes from:</strong> Trees<br>
-                        <strong>Used to make:</strong> Tables, chairs, pencils, houses, toys<br>
-                        <strong>How we get it:</strong> Cut down trees and shape the wood</p>
+        <!-- UNIT 10: D2.8 - Natural Materials -->
+        <div id="unit10" class="page">
+            <div class="card" style="border-color: var(--orange-fun);">
+                <h2 class="clickable-audio">🌿 Natural Materials</h2>
+                
+                <h3>Materials From Nature!</h3>
+                <p class="clickable-audio">Natural materials come from plants, animals, or earth!</p>
+                
+                <h3>From Plants</h3>
+                <div class="example-grid">
+                    <div class="example-card clickable-audio" style="border-color: var(--recycle-green);">
+                        <div class="icon">🌲</div>
+                        <h4>Wood</h4>
+                        <p>From trees!</p>
                     </div>
-                    <div class="example-box">
-                        <h5>🌿 Cotton</h5>
-                        <p><strong>Comes from:</strong> Cotton plants<br>
-                        <strong>Used to make:</strong> T-shirts, jeans, towels, sheets<br>
-                        <strong>How we get it:</strong> Pick cotton from plants and spin into thread</p>
+                    <div class="example-card clickable-audio" style="border-color: var(--blue-sky);">
+                        <div class="icon">🌿</div>
+                        <h4>Cotton</h4>
+                        <p>From cotton plants!</p>
                     </div>
-                    <div class="example-box">
-                        <h5>📄 Paper</h5>
-                        <p><strong>Comes from:</strong> Trees (wood pulp)<br>
-                        <strong>Used to make:</strong> Books, notebooks, cardboard boxes<br>
-                        <strong>How we get it:</strong> Mash up wood and flatten it into sheets</p>
-                    </div>
-                    <div class="example-box">
-                        <h5>🌾 Straw/Bamboo</h5>
-                        <p><strong>Comes from:</strong> Grass plants and bamboo<br>
-                        <strong>Used to make:</strong> Baskets, mats, some furniture<br>
-                        <strong>How we get it:</strong> Cut and dry the plants</p>
+                    <div class="example-card clickable-audio" style="border-color: var(--orange-fun);">
+                        <div class="icon">📄</div>
+                        <h4>Paper</h4>
+                        <p>From trees!</p>
                     </div>
                 </div>
 
-                <div class="section">
-                    <h4>Materials From Animals</h4>
-                    <div class="example-box">
-                        <h5>🐑 Wool</h5>
-                        <p><strong>Comes from:</strong> Sheep (their fur)<br>
-                        <strong>Used to make:</strong> Sweaters, blankets, hats<br>
-                        <strong>How we get it:</strong> Shear sheep's wool and spin it into yarn</p>
+                <h3>From Animals & Earth</h3>
+                <div class="example-grid">
+                    <div class="example-card clickable-audio" style="border-color: var(--yellow-sun);">
+                        <div class="icon">🐑</div>
+                        <h4>Wool</h4>
+                        <p>From sheep!</p>
                     </div>
-                    <div class="example-box">
-                        <h5>👞 Leather</h5>
-                        <p><strong>Comes from:</strong> Animal skins<br>
-                        <strong>Used to make:</strong> Shoes, belts, bags<br>
-                        <strong>How we get it:</strong> Treat animal skins to make them soft</p>
+                    <div class="example-card clickable-audio" style="border-color: var(--purple-grape);">
+                        <div class="icon">👞</div>
+                        <h4>Leather</h4>
+                        <p>From animal skins!</p>
                     </div>
-                </div>
-
-                <div class="section">
-                    <h4>Materials From the Earth</h4>
-                    <div class="example-box">
-                        <h5>🪨 Stone/Rock</h5>
-                        <p><strong>Comes from:</strong> The ground<br>
-                        <strong>Used to make:</strong> Buildings, pathways, countertops<br>
-                        <strong>How we get it:</strong> Dig it out of the ground and cut it</p>
+                    <div class="example-card clickable-audio" style="border-color: var(--red-apple);">
+                        <div class="icon">🪨</div>
+                        <h4>Stone</h4>
+                        <p>From the ground!</p>
                     </div>
-                    <div class="example-box">
-                        <h5>🧱 Clay</h5>
-                        <p><strong>Comes from:</strong> Soil/earth<br>
-                        <strong>Used to make:</strong> Bricks, pots, mugs, plates<br>
-                        <strong>How we get it:</strong> Dig clay from ground, shape it, and bake it</p>
+                    <div class="example-card clickable-audio" style="border-color: var(--recycle-green);">
+                        <div class="icon">🧱</div>
+                        <h4>Clay</h4>
+                        <p>From earth!</p>
                     </div>
-                    <div class="example-box">
-                        <h5>🏖️ Sand</h5>
-                        <p><strong>Comes from:</strong> Beaches, deserts, ground<br>
-                        <strong>Used to make:</strong> Glass, concrete<br>
-                        <strong>How we get it:</strong> Collect it and heat it to make glass</p>
-                    </div>
-                    <div class="example-box">
-                        <h5>⛰️ Metal Ores</h5>
-                        <p><strong>Comes from:</strong> Rocks underground<br>
-                        <strong>Used to make:</strong> Spoons, cars, bikes, cans<br>
-                        <strong>How we get it:</strong> Dig rocks and melt them to get metal</p>
+                    <div class="example-card clickable-audio" style="border-color: var(--blue-sky);">
+                        <div class="icon">🏖️</div>
+                        <h4>Sand</h4>
+                        <p>Makes glass!</p>
                     </div>
                 </div>
 
-                <div class="section">
-                    <h4>Why Natural Materials Are Important</h4>
-                    <ul>
-                        <li>They come from nature, not made in factories 🌍</li>
-                        <li>Many can be replaced (trees can grow back) 🌱</li>
-                        <li>They are often biodegradable (break down naturally) ♻️</li>
-                        <li>People have used them for thousands of years 👥</li>
-                    </ul>
+                <!-- Quiz -->
+                <div class="quiz-container">
+                    <h3 class="clickable-audio">🎯 Quiz Time!</h3>
+                    
+                    <div class="question" data-answer="0">
+                        <div class="question-text clickable-audio">1. What are natural materials?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">From nature</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Only plastic</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Made in factories</div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-answer="1">
+                        <div class="question-text clickable-audio">2. Where's wood from?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Animals</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Trees</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Ocean</div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-answer="2">
+                        <div class="question-text clickable-audio">3. What comes from sheep?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Cotton</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Leather</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Wool</div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-answer="0">
+                        <div class="question-text clickable-audio">4. Sand is used for what?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Glass</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">Cotton</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Wool</div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-answer="1">
+                        <div class="question-text clickable-audio">5. Clay comes from where?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 0)">Trees</div>
+                            <div class="option" onclick="selectQuizOption(this, 1)">The ground</div>
+                            <div class="option" onclick="selectQuizOption(this, 2)">Animals</div>
+                        </div>
+                    </div>
+
+                    <button class="quiz-button" onclick="checkQuiz()">✓ Check My Answers!</button>
+                    <div class="quiz-score" id="quiz-score"></div>
                 </div>
-            </div>
 
-            <div class="card">
-                <h3>🎯 Activity: Match Materials to Sources!</h3>
-                <div class="activity-container">
-                    <h4 class="activity-title">Where does each material come from?</h4>
-                    <p class="drag-instructions">Drag to Plants, Animals, or Earth</p>
-
-                    <div class="drag-items" id="unit10-items">
+                <!-- Drag and Drop -->
+                <div class="drag-drop-container">
+                    <h3 class="clickable-audio">🎮 Match Materials to Sources!</h3>
+                    <p class="clickable-audio">Where does each come from?</p>
+                    
+                    <div class="drag-items-container" id="drag-items">
                         <div class="drag-item" draggable="true" data-category="plants">🌲 Wood</div>
                         <div class="drag-item" draggable="true" data-category="animals">🐑 Wool</div>
                         <div class="drag-item" draggable="true" data-category="earth">🪨 Stone</div>
@@ -1505,93 +1800,106 @@
                         <div class="drag-item" draggable="true" data-category="earth">🧱 Clay</div>
                         <div class="drag-item" draggable="true" data-category="animals">👞 Leather</div>
                     </div>
-
+                    
                     <div class="drop-zones">
-                        <div class="drop-zone" data-zone="plants"><h5>🌱 From Plants</h5></div>
-                        <div class="drop-zone" data-zone="animals"><h5>🐾 From Animals</h5></div>
-                        <div class="drop-zone" data-zone="earth"><h5>🌍 From Earth</h5></div>
+                        <div class="drop-zone" data-zone="plants"><h4>🌱 From Plants</h4></div>
+                        <div class="drop-zone" data-zone="animals"><h4>🐾 From Animals</h4></div>
+                        <div class="drop-zone" data-zone="earth"><h4>🌍 From Earth</h4></div>
                     </div>
 
-                    <button class="check-btn" onclick="checkActivity('unit10')">Check Answers!</button>
-                    <div class="feedback" id="unit10-feedback"></div>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>📝 Quiz Time!</h3>
-                <div class="quiz-container" id="unit10-quiz">
-                    <div class="question" data-answer="0">
-                        <h4>1. What are natural materials?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit10')">A) Materials from nature</div>
-                            <div class="option" onclick="selectOption(this, 'unit10')">B) Only plastic</div>
-                            <div class="option" onclick="selectOption(this, 'unit10')">C) Made in factories</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="1">
-                        <h4>2. Where does wood come from?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit10')">A) Animals</div>
-                            <div class="option" onclick="selectOption(this, 'unit10')">B) Trees</div>
-                            <div class="option" onclick="selectOption(this, 'unit10')">C) The ocean</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="2">
-                        <h4>3. What material comes from sheep?</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit10')">A) Cotton</div>
-                            <div class="option" onclick="selectOption(this, 'unit10')">B) Leather</div>
-                            <div class="option" onclick="selectOption(this, 'unit10')">C) Wool</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="0">
-                        <h4>4. Sand is used to make:</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit10')">A) Glass</div>
-                            <div class="option" onclick="selectOption(this, 'unit10')">B) Cotton shirts</div>
-                            <div class="option" onclick="selectOption(this, 'unit10')">C) Wool sweaters</div>
-                        </div>
-                    </div>
-                    <div class="question" data-answer="1">
-                        <h4>5. Clay comes from:</h4>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'unit10')">A) Trees</div>
-                            <div class="option" onclick="selectOption(this, 'unit10')">B) The ground/earth</div>
-                            <div class="option" onclick="selectOption(this, 'unit10')">C) Animals</div>
-                        </div>
-                    </div>
-                    <button class="submit-quiz-btn" onclick="submitQuiz('unit10')">Submit Quiz</button>
-                    <div class="quiz-results" id="unit10-results"></div>
+                    <button class="drag-check-button" onclick="checkDragDrop()">✓ Check My Answers!</button>
+                    <div class="drag-feedback" id="drag-feedback"></div>
                 </div>
             </div>
         </div>
-
     </div>
 
     <script>
         // Text-to-Speech
-        function speakText(button, text) {
+        function speak(text) {
             window.speechSynthesis.cancel();
-            if (button.classList.contains('playing')) {
-                button.classList.remove('playing');
-                return;
-            }
-            document.querySelectorAll('.audio-btn').forEach(btn => btn.classList.remove('playing'));
-            button.classList.add('playing');
             const utterance = new SpeechSynthesisUtterance(text);
-            utterance.rate = 0.9;
+            utterance.rate = 0.85;
             utterance.pitch = 1.1;
-            utterance.onend = () => button.classList.remove('playing');
             window.speechSynthesis.speak(utterance);
         }
 
-        // Navigation
-        function showUnit(unitId) {
-            document.querySelectorAll('.unit').forEach(u => u.classList.remove('active'));
-            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById(unitId).classList.add('active');
+        // Click-to-read functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.clickable-audio').forEach(element => {
+                element.addEventListener('click', function() {
+                    document.querySelectorAll('.speaking').forEach(el => el.classList.remove('speaking'));
+                    this.classList.add('speaking');
+                    speak(this.textContent);
+                    setTimeout(() => this.classList.remove('speaking'), 2000);
+                });
+            });
+        });
+
+        // Page Navigation
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            document.querySelectorAll('.unit-button').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
             event.target.classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Quiz Functions
+        let selectedAnswers = [];
+
+        function selectQuizOption(element, optionIndex) {
+            const question = element.closest('.question');
+            const questionIndex = Array.from(document.querySelectorAll('.question')).indexOf(question);
+            question.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+            selectedAnswers[questionIndex] = optionIndex;
+        }
+
+        function checkQuiz() {
+            const questions = document.querySelectorAll('.question');
+            let correct = 0;
+
+            questions.forEach((question, index) => {
+                const correctAnswer = parseInt(question.dataset.answer);
+                const options = question.querySelectorAll('.option');
+                
+                options.forEach((option, optIndex) => {
+                    option.classList.remove('correct', 'incorrect');
+                    if (optIndex === correctAnswer) {
+                        option.classList.add('correct');
+                    }
+                    if (selectedAnswers[index] === optIndex && optIndex !== correctAnswer) {
+                        option.classList.add('incorrect');
+                    }
+                });
+
+                if (selectedAnswers[index] === correctAnswer) {
+                    correct++;
+                }
+            });
+
+            const scoreDiv = document.getElementById('quiz-score');
+            scoreDiv.classList.add('show');
+            
+            if (correct === 5) {
+                scoreDiv.style.background = 'var(--recycle-green)';
+                scoreDiv.style.color = 'white';
+                scoreDiv.textContent = `🌟 Perfect! ${correct}/5! You're a waste reduction expert!`;
+                speak('Perfect! You got all 5 correct! You are a waste reduction expert!');
+            } else if (correct >= 3) {
+                scoreDiv.style.background = 'var(--yellow-sun)';
+                scoreDiv.style.color = 'white';
+                scoreDiv.textContent = `👍 Good job! ${correct}/5! Keep learning!`;
+                speak(`Good job! You got ${correct} out of 5 correct!`);
+            } else {
+                scoreDiv.style.background = 'var(--red-apple)';
+                scoreDiv.style.color = 'white';
+                scoreDiv.textContent = `📚 ${correct}/5. Try again!`;
+                speak(`You got ${correct} out of 5. Try again!`);
+            }
+
+            scoreDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
 
         // Drag and Drop
@@ -1627,90 +1935,42 @@
             });
         });
 
-        function checkActivity(unitId) {
-            const zones = document.querySelectorAll(`#${unitId} .drop-zone`);
+        function checkDragDrop() {
+            const zones = document.querySelectorAll('.drop-zone');
             let correct = 0;
             let total = 0;
 
             zones.forEach(zone => {
                 const zoneType = zone.dataset.zone;
                 const items = zone.querySelectorAll('.drag-item');
+                
                 items.forEach(item => {
                     total++;
                     if (item.dataset.category === zoneType) {
                         correct++;
-                        item.style.borderColor = 'var(--green-success)';
+                        item.style.borderColor = 'var(--recycle-green)';
+                        item.style.background = '#D1FAE5';
                     } else {
-                        item.style.borderColor = 'var(--red-error)';
+                        item.style.borderColor = 'var(--red-apple)';
+                        item.style.background = '#FEE2E2';
                     }
                 });
             });
 
-            const feedback = document.getElementById(`${unitId}-feedback`);
-            feedback.style.display = 'block';
-            
+            const feedback = document.getElementById('drag-feedback');
+            feedback.classList.add('show');
+
             if (correct === total && total > 0) {
-                feedback.className = 'feedback success';
-                feedback.textContent = '🎉 Perfect! You got them all correct! Great job!';
+                feedback.style.background = 'var(--recycle-green)';
+                feedback.style.color = 'white';
+                feedback.textContent = '🎉 Perfect! All sorted correctly!';
+                speak('Perfect! All sorted correctly!');
             } else {
-                feedback.className = 'feedback error';
-                feedback.textContent = `You got ${correct} out of ${total} correct. Try again! Look at the items with red borders.`;
+                feedback.style.background = 'var(--yellow-sun)';
+                feedback.style.color = 'white';
+                feedback.textContent = `${correct}/${total} correct! Try again!`;
+                speak(`You got ${correct} out of ${total} correct!`);
             }
-        }
-
-        // Quiz Functions
-        function selectOption(option, unitId) {
-            const question = option.closest('.question');
-            const options = question.querySelectorAll('.option');
-            options.forEach(opt => opt.classList.remove('selected'));
-            option.classList.add('selected');
-        }
-
-        function submitQuiz(unitId) {
-            const questions = document.querySelectorAll(`#${unitId}-quiz .question`);
-            let correct = 0;
-
-            questions.forEach(question => {
-                const selectedOption = question.querySelector('.option.selected');
-                const correctAnswer = parseInt(question.dataset.answer);
-                const options = question.querySelectorAll('.option');
-
-                if (selectedOption) {
-                    const selectedIndex = Array.from(options).indexOf(selectedOption);
-                    if (selectedIndex === correctAnswer) {
-                        selectedOption.classList.add('correct');
-                        correct++;
-                    } else {
-                        selectedOption.classList.add('incorrect');
-                        options[correctAnswer].classList.add('correct');
-                    }
-                } else {
-                    options[correctAnswer].classList.add('correct');
-                }
-            });
-
-            const results = document.getElementById(`${unitId}-results`);
-            results.style.display = 'block';
-            const percentage = (correct / questions.length) * 100;
-            
-            if (percentage === 100) {
-                results.style.background = '#D1FAE5';
-                results.style.color = '#065F46';
-                results.style.border = '3px solid var(--green-success)';
-                results.textContent = `🌟 Excellent! You got ${correct} out of ${questions.length} correct! You're an expert!`;
-            } else if (percentage >= 60) {
-                results.style.background = '#FEF3C7';
-                results.style.color = '#92400E';
-                results.style.border = '3px solid var(--yellow-accent)';
-                results.textContent = `👍 Good job! You got ${correct} out of ${questions.length} correct! Keep learning!`;
-            } else {
-                results.style.background = '#FEE2E2';
-                results.style.color = '#991B1B';
-                results.style.border = '3px solid var(--red-error)';
-                results.textContent = `📚 You got ${correct} out of ${questions.length} correct. Review the lesson and try again!`;
-            }
-
-            results.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     </script>
 </body>
